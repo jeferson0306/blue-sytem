@@ -34,16 +34,46 @@ public class ClienteController {
         return clienteService.buscarClientePorId(id);
     }
 
-    @GetMapping("/todos")
-    public Flux<Cliente> buscarTodosClientes() {
-        log.info("Buscando todos os clientes");
-        return clienteService.buscarTodosClientes();
+    @GetMapping("/nome/{nome}")
+    public Flux<Cliente> buscarClientesPorNome(@PathVariable final String nome) {
+        log.info("Recebida solicitação para buscar clientes por nome: [{}]", nome);
+        return clienteService.buscarClientesPorNome(nome);
     }
 
-    @GetMapping("/{clienteId}/exames")
-    public Flux<Exame> buscarExamesDoCliente(@PathVariable final Long clienteId) {
-        log.info("Buscando exames do cliente: [{}]", clienteId);
-        return clienteService.buscarExamesDoCliente(clienteId);
+    @GetMapping("/rg/{rg}")
+    public Flux<Cliente> buscarClientesPorRg(@PathVariable final String rg) {
+        log.info("Recebida solicitação para buscar clientes por RG: [{}]", rg);
+        return clienteService.buscarClientesPorRg(rg);
+    }
+
+    @GetMapping("/email/{email}")
+    public Flux<Cliente> buscarClientesPorEmail(@PathVariable final String email) {
+        log.info("Recebida solicitação para buscar clientes por e-mail: [{}]", email);
+        return clienteService.buscarClientesPorEmail(email);
+    }
+
+    @GetMapping("/cidade/{cidade}")
+    public Flux<Cliente> buscarClientesPorCidade(@PathVariable final String cidade) {
+        log.info("Recebida solicitação para buscar clientes por cidade: [{}]", cidade);
+        return clienteService.buscarClientesPorCidade(cidade);
+    }
+
+    @GetMapping("/telefone/{numero}")
+    public Flux<Cliente> buscarClientesPorNumeroTelefone(@PathVariable final String numero) {
+        log.info("Recebida solicitação para buscar clientes por número de telefone: [{}]", numero);
+        return clienteService.buscarClientesPorNumeroTelefone(numero);
+    }
+
+    @GetMapping("/dataNascimento/{dataNascimento}")
+    public Flux<Cliente> buscarClientesPorDataNascimento(@PathVariable final String dataNascimento) {
+        log.info("Recebida solicitação para buscar clientes por data de nascimento: [{}]", dataNascimento);
+        return clienteService.buscarClientesPorDataNascimento(dataNascimento);
+    }
+
+    @PostMapping("/cadastro")
+    public Mono<Cliente> cadastrarNovoCliente(@RequestBody Cliente cliente) {
+        log.info("Recebida solicitação para cadastrar um novo cliente.");
+        return clienteService.cadastrarNovoCliente(cliente);
     }
 
     @ExceptionHandler(ClienteNotFoundException.class)

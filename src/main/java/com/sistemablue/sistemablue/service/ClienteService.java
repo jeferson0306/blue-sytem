@@ -17,7 +17,6 @@ import reactor.core.publisher.Mono;
 public class ClienteService {
 
     private final ClienteRepository clienteRepository;
-    private final ExameRepository exameRepository;
 
     public Mono<Cliente> buscarClientePorCpf(String cpf) {
         log.info("Buscando cliente por CPF: [{}]", cpf);
@@ -31,13 +30,39 @@ public class ClienteService {
                 .switchIfEmpty(Mono.error(new ClienteNotFoundException(id.toString())));
     }
 
-    public Flux<Cliente> buscarTodosClientes() {
-        log.info("Clientes encontrados: [{}]", clienteRepository.findAll());
-        return clienteRepository.findAll();
+    public Flux<Cliente> buscarClientesPorNome(String nome) {
+        log.info("Buscando clientes por nome: [{}]", nome);
+        return clienteRepository.findByNome(nome);
     }
 
-    public Flux<Exame> buscarExamesDoCliente(Long clienteId) {
-        return exameRepository.findExamesById(clienteId);
+    public Flux<Cliente> buscarClientesPorRg(String rg) {
+        log.info("Buscando clientes por RG: [{}]", rg);
+        return clienteRepository.findByRg(rg);
+    }
+
+    public Flux<Cliente> buscarClientesPorEmail(String email) {
+        log.info("Buscando clientes por e-mail: [{}]", email);
+        return clienteRepository.findByEmailsEmail(email);
+    }
+
+    public Flux<Cliente> buscarClientesPorCidade(String cidade) {
+        log.info("Buscando clientes por cidade: [{}]", cidade);
+        return clienteRepository.findByEnderecosCidade(cidade);
+    }
+
+    public Flux<Cliente> buscarClientesPorNumeroTelefone(String numero) {
+        log.info("Buscando clientes por número de telefone: [{}]", numero);
+        return clienteRepository.findByTelefonesNumero(numero);
+    }
+
+    public Flux<Cliente> buscarClientesPorDataNascimento(String dataNascimento) {
+        log.info("Buscando clientes por data de nascimento: [{}]", dataNascimento);
+        return clienteRepository.findByDataNascimento(dataNascimento);
+    }
+
+    public Mono<Cliente> cadastrarNovoCliente(Cliente cliente) {
+        log.info("Cadastrando um novo cliente: [{}]", cliente.getNome());
+        return clienteRepository.save(cliente);
     }
 
 }
