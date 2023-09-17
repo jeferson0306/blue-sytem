@@ -8,7 +8,8 @@ public interface ExameRepository extends ReactiveMongoRepository<Exame, Long> {
 
     Flux<Exame> findExamesById(Long id);
     Flux<Exame> findByDataRealizacao(String dataRealizacao);
-    Flux<Exame> findByNomeDoCliente(String nomeDoCliente);
+    Flux<Exame> findByNome(String nome);
+
 
 
 

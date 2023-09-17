@@ -23,9 +23,9 @@ public class ExameController {
     }
 
     @GetMapping("/cliente/{nomeDoCliente}/exames")
-    public Flux<Exame> buscarExamesPorNomeDoCliente(@PathVariable final String nomeDoCliente) {
-        log.info("Buscando exames do cliente por nome: [{}]", nomeDoCliente);
-        return exameService.buscarExamesPorNomeDoCliente(nomeDoCliente);
+    public Flux<Exame> buscarExamesPorNomeDoCliente(@PathVariable final String nome) {
+        log.info("Buscando exames do cliente por nome: [{}]", nome);
+        return exameService.buscarExamesPorNomeDoCliente(nome);
     }
 
     @GetMapping("/data/{dataRealizacao}/exames")

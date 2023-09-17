@@ -23,8 +23,8 @@ public class ExameService {
         return exameRepository.findByDataRealizacao(dataRealizacao);
     }
 
-    public Flux<Exame> buscarExamesPorNomeDoCliente(String nomeDoCliente) {
-        return exameRepository.findByNomeDoCliente(nomeDoCliente);
+    public Flux<Exame> buscarExamesPorNomeDoCliente(String nome) {
+        return exameRepository.findByNome(nome);
     }
 
     public Mono<Exame> cadastrarNovoExame(Exame exame) {

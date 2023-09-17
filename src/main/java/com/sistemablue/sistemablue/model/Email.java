@@ -11,5 +11,6 @@ public class Email {
 
     private UUID id;
     private String email;
+    private String dataCadastro;
 
 }

@@ -10,5 +10,6 @@ public class Telefone {
     private Long id;
     private String numero;
     private String tipo;
+    private String dataCadastro;
 
 }
