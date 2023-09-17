@@ -1,15 +1,16 @@
 package com.sistemablue.sistemablue.service;
 
-import com.sistemablue.sistemablue.exception.ClienteNotFoundException;
+import com.sistemablue.sistemablue.exception.ClienteException;
 import com.sistemablue.sistemablue.model.Cliente;
-import com.sistemablue.sistemablue.model.Exame;
 import com.sistemablue.sistemablue.repository.ClienteRepository;
-import com.sistemablue.sistemablue.repository.ExameRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.regex.Pattern;
 
 @Slf4j
 @Service
@@ -17,17 +18,18 @@ import reactor.core.publisher.Mono;
 public class ClienteService {
 
     private final ClienteRepository clienteRepository;
+    private static final Pattern VALID_CPF_PATTERN = Pattern.compile("^[0-9]{11}$"); // 11 dígitos numéricos
 
     public Mono<Cliente> buscarClientePorCpf(String cpf) {
         log.info("Buscando cliente por CPF: [{}]", cpf);
         return clienteRepository.findByCpf(cpf)
-                .switchIfEmpty(Mono.error(new ClienteNotFoundException(cpf)));
+                .switchIfEmpty(Mono.error(new ClienteException("Cliente não encontrado para CPF: " + cpf, HttpStatus.NOT_FOUND)));
     }
 
     public Mono<Cliente> buscarClientePorId(Long id) {
         log.info("Buscando cliente por ID: [{}]", id);
         return clienteRepository.findById(id)
-                .switchIfEmpty(Mono.error(new ClienteNotFoundException(id.toString())));
+                .switchIfEmpty(Mono.error(new ClienteException("Cliente não encontrado para ID: " + id, HttpStatus.NOT_FOUND)));
     }
 
     public Flux<Cliente> buscarClientesPorNome(String nome) {

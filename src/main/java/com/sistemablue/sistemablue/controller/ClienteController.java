@@ -1,12 +1,11 @@
 package com.sistemablue.sistemablue.controller;
 
-import com.sistemablue.sistemablue.exception.ClienteNotFoundException;
+import com.sistemablue.sistemablue.exception.ClienteException;
 import com.sistemablue.sistemablue.model.Cliente;
-import com.sistemablue.sistemablue.model.Exame;
 import com.sistemablue.sistemablue.service.ClienteService;
+import com.sistemablue.sistemablue.util.Utils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +23,15 @@ public class ClienteController {
 
     @GetMapping("/cpf/{cpf}")
     public Mono<Cliente> buscarClientePorCpf(@PathVariable final String cpf) {
+
+        if (!Utils.isValidCpf(cpf)) {
+            throw new ClienteException("CPF inválido: " + cpf, HttpStatus.BAD_REQUEST);
+        }
+
         log.info("Recebida solicitação para buscar cliente por CPF: [{}]", cpf);
         return clienteService.buscarClientePorCpf(cpf);
     }
+
 
     @GetMapping("/id/{id}")
     public Mono<Cliente> buscarClientePorId(@PathVariable final Long id) {
@@ -76,10 +81,9 @@ public class ClienteController {
         return clienteService.cadastrarNovoCliente(cliente);
     }
 
-    @ExceptionHandler(ClienteNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String handleClienteNotFoundException(ClienteNotFoundException ex) {
-        return ex.getMessage();
+    @ExceptionHandler(ClienteException.class)
+    public ResponseEntity<String> handleClienteNotFoundException(ClienteException ex) {
+        return new ResponseEntity<>(ex.getMessage(), ex.getHttpStatus());
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)

@@ -1,9 +1,11 @@
 package com.sistemablue.sistemablue.controller;
 
+import com.sistemablue.sistemablue.exception.ExameException;
 import com.sistemablue.sistemablue.model.Exame;
 import com.sistemablue.sistemablue.service.ExameService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -38,6 +40,12 @@ public class ExameController {
     public Mono<Exame> cadastrarNovoExame(@RequestBody Exame exame) {
         log.info("Recebida solicitação para cadastrar um novo exame.");
         return exameService.cadastrarNovoExame(exame);
+    }
+
+    @ExceptionHandler(ExameException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String handleExameNotFoundException(ExameException ex) {
+        return ex.getMessage();
     }
 
 }
