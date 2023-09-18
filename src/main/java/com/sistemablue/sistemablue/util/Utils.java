@@ -1,5 +1,8 @@
 package com.sistemablue.sistemablue.util;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Utils {
 
     public static boolean isValidCpf(String cpf) {

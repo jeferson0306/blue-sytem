@@ -18,10 +18,14 @@ import java.util.regex.Pattern;
 public class ClienteService {
 
     private final ClienteRepository clienteRepository;
-    private static final Pattern VALID_CPF_PATTERN = Pattern.compile("^[0-9]{11}$"); // 11 dígitos numéricos
+
+    public static final Pattern VALID_CPF_PATTERN = Pattern.compile("^[0-9]{11}$");
 
     public Mono<Cliente> buscarClientePorCpf(String cpf) {
-        log.info("Buscando cliente por CPF: [{}]", cpf);
+        if (!isValidCpf(cpf)) {
+            throw new ClienteException("CPF inválido: " + cpf, HttpStatus.BAD_REQUEST);
+        }
+        log.info("CPF válido - Buscando cliente por CPF: [{}]", cpf);
         return clienteRepository.findByCpf(cpf)
                 .switchIfEmpty(Mono.error(new ClienteException("Cliente não encontrado para CPF: " + cpf, HttpStatus.NOT_FOUND)));
     }
@@ -65,6 +69,10 @@ public class ClienteService {
     public Mono<Cliente> cadastrarNovoCliente(Cliente cliente) {
         log.info("Cadastrando um novo cliente: [{}]", cliente.getNome());
         return clienteRepository.save(cliente);
+    }
+
+    public boolean isValidCpf(String cpf) {
+        return VALID_CPF_PATTERN.matcher(cpf).matches();
     }
 
 }

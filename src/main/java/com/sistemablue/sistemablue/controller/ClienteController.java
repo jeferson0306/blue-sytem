@@ -6,12 +6,15 @@ import com.sistemablue.sistemablue.service.ClienteService;
 import com.sistemablue.sistemablue.util.Utils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.regex.Pattern;
 
 @Slf4j
 @RestController
@@ -23,15 +26,9 @@ public class ClienteController {
 
     @GetMapping("/cpf/{cpf}")
     public Mono<Cliente> buscarClientePorCpf(@PathVariable final String cpf) {
-
-        if (!Utils.isValidCpf(cpf)) {
-            throw new ClienteException("CPF inválido: " + cpf, HttpStatus.BAD_REQUEST);
-        }
-
         log.info("Recebida solicitação para buscar cliente por CPF: [{}]", cpf);
         return clienteService.buscarClientePorCpf(cpf);
     }
-
 
     @GetMapping("/id/{id}")
     public Mono<Cliente> buscarClientePorId(@PathVariable final Long id) {

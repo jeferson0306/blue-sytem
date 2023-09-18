@@ -10,6 +10,8 @@ public class Exame {
 
     private Long id;
     private Long codigo;
+    private String codigoUnimed;
+    private String codigoTiss;
     private String nome;
     private String amostra;
     private String unidade;
@@ -19,5 +21,6 @@ public class Exame {
     private String dataRealizacao;
     private String dataCadastro;
     private Boolean alteracao;
+    private Unimed unimed;
 
 }
