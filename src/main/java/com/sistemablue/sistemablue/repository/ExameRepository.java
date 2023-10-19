@@ -6,9 +6,9 @@ import reactor.core.publisher.Flux;
 
 public interface ExameRepository extends ReactiveMongoRepository<Exame, Long> {
 
-    Flux<Exame> findExamesById(Long id);
-    Flux<Exame> findByDataRealizacao(String dataRealizacao);
-    Flux<Exame> findByNome(String nome);
+    Flux<Exame> findExamesById(final Long id);
+    Flux<Exame> findByDataRealizacao(final String dataRealizacao);
+    Flux<Exame> findByNome(final String nome);
 
 
 

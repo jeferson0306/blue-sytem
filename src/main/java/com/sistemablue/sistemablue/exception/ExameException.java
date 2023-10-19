@@ -8,7 +8,7 @@ public class ExameException extends RuntimeException {
 
     private HttpStatus httpStatus;
 
-    public ExameException(String message, HttpStatus httpStatus) {
+    public ExameException(final String message, HttpStatus httpStatus) {
         super(message);
         this.httpStatus = httpStatus;
     }

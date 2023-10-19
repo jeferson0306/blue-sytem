@@ -1,20 +1,12 @@
 package com.sistemablue.sistemablue.controller;
 
-import com.sistemablue.sistemablue.exception.ClienteException;
 import com.sistemablue.sistemablue.model.Cliente;
 import com.sistemablue.sistemablue.service.ClienteService;
-import com.sistemablue.sistemablue.util.Utils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
-import java.util.regex.Pattern;
 
 @Slf4j
 @RestController
@@ -26,67 +18,74 @@ public class ClienteController {
 
     @GetMapping("/cpf/{cpf}")
     public Mono<Cliente> buscarClientePorCpf(@PathVariable final String cpf) {
-        log.info("Recebida solicitação para buscar cliente por CPF: [{}]", cpf);
-        return clienteService.buscarClientePorCpf(cpf);
+        log.info("Início da solicitação para buscar cliente por CPF: [{}]", cpf);
+        final var cliente = clienteService.buscarClientePorCpf(cpf);
+        log.info("Fim da solicitação para buscar cliente por CPF: [{}]", cpf);
+        return cliente;
     }
 
     @GetMapping("/id/{id}")
     public Mono<Cliente> buscarClientePorId(@PathVariable final Long id) {
-        log.info("Recebida solicitação para buscar cliente por ID: [{}]", id);
-        return clienteService.buscarClientePorId(id);
+        log.info("Início da solicitação para buscar cliente por ID: [{}]", id);
+        final var cliente = clienteService.buscarClientePorId(id);
+        log.info("Fim da solicitação para buscar cliente por ID: [{}]", id);
+        return cliente;
     }
 
     @GetMapping("/nome/{nome}")
-    public Flux<Cliente> buscarClientesPorNome(@PathVariable final String nome) {
-        log.info("Recebida solicitação para buscar clientes por nome: [{}]", nome);
-        return clienteService.buscarClientesPorNome(nome);
+    public Flux<Cliente> buscarClientePorNome(@PathVariable final String nome) {
+        log.info("Início da solicitação para buscar clientes por nome: [{}]", nome);
+        final var cliente = clienteService.buscarClientesPorNome(nome);
+        log.info("Fim da solicitação para buscar clientes por nome: [{}]", nome);
+        return cliente;
     }
 
     @GetMapping("/rg/{rg}")
     public Flux<Cliente> buscarClientesPorRg(@PathVariable final String rg) {
-        log.info("Recebida solicitação para buscar clientes por RG: [{}]", rg);
-        return clienteService.buscarClientesPorRg(rg);
+        log.info("Início da solicitação para buscar clientes por RG: [{}]", rg);
+        final var cliente = clienteService.buscarClientePorRg(rg);
+        log.info("Fim da solicitação para buscar clientes por RG: [{}]", rg);
+        return cliente;
     }
 
     @GetMapping("/email/{email}")
     public Flux<Cliente> buscarClientesPorEmail(@PathVariable final String email) {
-        log.info("Recebida solicitação para buscar clientes por e-mail: [{}]", email);
-        return clienteService.buscarClientesPorEmail(email);
+        log.info("Início da solicitação para buscar clientes por e-mail: [{}]", email);
+        final var cliente = clienteService.buscarClientePorEmail(email);
+        log.info("Fim da solicitação para buscar clientes por e-mail: [{}]", email);
+        return cliente;
     }
 
     @GetMapping("/cidade/{cidade}")
     public Flux<Cliente> buscarClientesPorCidade(@PathVariable final String cidade) {
-        log.info("Recebida solicitação para buscar clientes por cidade: [{}]", cidade);
-        return clienteService.buscarClientesPorCidade(cidade);
+        log.info("Início da solicitação para buscar clientes por cidade: [{}]", cidade);
+        final var cliente = clienteService.buscarClientePorCidade(cidade);
+        log.info("Fim da solicitação para buscar clientes por cidade: [{}]", cidade);
+        return cliente;
     }
 
     @GetMapping("/telefone/{numero}")
     public Flux<Cliente> buscarClientesPorNumeroTelefone(@PathVariable final String numero) {
-        log.info("Recebida solicitação para buscar clientes por número de telefone: [{}]", numero);
-        return clienteService.buscarClientesPorNumeroTelefone(numero);
+        log.info("Início da solicitação para buscar clientes por número de telefone: [{}]", numero);
+        final var cliente = clienteService.buscarClientePorNumeroTelefone(numero);
+        log.info("Fim da solicitação para buscar clientes por número de telefone: [{}]", numero);
+        return cliente;
     }
 
     @GetMapping("/dataNascimento/{dataNascimento}")
     public Flux<Cliente> buscarClientesPorDataNascimento(@PathVariable final String dataNascimento) {
-        log.info("Recebida solicitação para buscar clientes por data de nascimento: [{}]", dataNascimento);
-        return clienteService.buscarClientesPorDataNascimento(dataNascimento);
+        log.info("Início da solicitação para buscar clientes por data de nascimento: [{}]", dataNascimento);
+        final var cliente = clienteService.buscarClientePorDataNascimento(dataNascimento);
+        log.info("Fim da solicitação para buscar clientes por data de nascimento: [{}]", dataNascimento);
+        return cliente;
     }
 
     @PostMapping("/cadastro")
-    public Mono<Cliente> cadastrarNovoCliente(@RequestBody Cliente cliente) {
-        log.info("Recebida solicitação para cadastrar um novo cliente.");
-        return clienteService.cadastrarNovoCliente(cliente);
-    }
-
-    @ExceptionHandler(ClienteException.class)
-    public ResponseEntity<String> handleClienteNotFoundException(ClienteException ex) {
-        return new ResponseEntity<>(ex.getMessage(), ex.getHttpStatus());
-    }
-
-    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResponseEntity<Object> handleMethodArgumentTypeMismatch(MethodArgumentTypeMismatchException ex) {
-        final var errorMessage = "ID inválido: " + ex.getValue();
-        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+    public Mono<Cliente> cadastrarNovoCliente(@RequestBody Cliente novoCliente) {
+        log.info("Início da solicitação para cadastrar um novo cliente.");
+        final var cliente = clienteService.cadastrarNovoCliente(novoCliente);
+        log.info("Fim da solicitação para cadastrar um novo cliente.");
+        return cliente;
     }
 
 }

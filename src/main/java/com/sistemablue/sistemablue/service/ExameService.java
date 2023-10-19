@@ -15,15 +15,15 @@ public class ExameService {
 
     private final ExameRepository exameRepository;
 
-    public Flux<Exame> buscarExamesDoCliente(Long clienteId) {
+    public Flux<Exame> buscarExamesDoCliente(final Long clienteId) {
         return exameRepository.findExamesById(clienteId);
     }
 
-    public Flux<Exame> buscarExamesPorDataRealizacao(String dataRealizacao) {
+    public Flux<Exame> buscarExamesPorDataRealizacao(final String dataRealizacao) {
         return exameRepository.findByDataRealizacao(dataRealizacao);
     }
 
-    public Flux<Exame> buscarExamesPorNomeDoCliente(String nome) {
+    public Flux<Exame> buscarExamesPorNomeDoCliente(final String nome) {
         return exameRepository.findByNome(nome);
     }
 

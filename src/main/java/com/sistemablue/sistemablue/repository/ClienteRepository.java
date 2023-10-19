@@ -7,14 +7,14 @@ import reactor.core.publisher.Mono;
 
 public interface ClienteRepository extends ReactiveMongoRepository<Cliente, Long> {
 
-    Mono<Cliente> findById(Long id);
-    Flux<Cliente> findByNome(String nome);
-    Mono<Cliente> findByCpf(String cpf);
-    Flux<Cliente> findByRg(String rg);
-    Flux<Cliente> findByDataNascimento(String dataNascimento);
-    Flux<Cliente> findByEmailsEmail(String email);
-    Flux<Cliente> findByTelefonesNumero(String numero);
-    Flux<Cliente> findByEnderecosCidade(String cidade);
+    Mono<Cliente> findById(final Long id);
+    Flux<Cliente> findByNome(final String nome);
+    Mono<Cliente> findByCpf(final String cpf);
+    Flux<Cliente> findByRg(final String rg);
+    Flux<Cliente> findByDataNascimento(final String dataNascimento);
+    Flux<Cliente> findByEmailsEmail(final String email);
+    Flux<Cliente> findByTelefonesNumero(final String numero);
+    Flux<Cliente> findByEnderecosCidade(final String cidade);
     Flux<Cliente> findAll();
 
 }
