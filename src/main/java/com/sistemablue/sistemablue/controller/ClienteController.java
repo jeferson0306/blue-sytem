@@ -4,8 +4,8 @@ import com.sistemablue.sistemablue.model.Cliente;
 import com.sistemablue.sistemablue.service.ClienteService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.bson.types.ObjectId;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Slf4j
@@ -24,60 +24,60 @@ public class ClienteController {
         return cliente;
     }
 
-    @GetMapping("/id/{id}")
-    public Mono<Cliente> buscarClientePorId(@PathVariable final Long id) {
-        log.info("Início da solicitação para buscar cliente por ID: [{}]", id);
-        final var cliente = clienteService.buscarClientePorId(id);
-        log.info("Fim da solicitação para buscar cliente por ID: [{}]", id);
-        return cliente;
+    @GetMapping("/objectId/{objectId}")
+    public Mono<Cliente> buscarClientePorId(@PathVariable final ObjectId objectId) {
+        log.info("Início da solicitação para buscar cliente por ID: [{}]", objectId);
+        final var clienteretorno = clienteService.buscarClientePorId(objectId);
+        log.info("Fim da solicitação para buscar cliente por ID: [{}]", objectId);
+        return clienteretorno;
     }
 
     @GetMapping("/nome/{nome}")
-    public Flux<Cliente> buscarClientePorNome(@PathVariable final String nome) {
+    public Mono<Cliente> buscarClientePorNome(@PathVariable final String nome) {
         log.info("Início da solicitação para buscar clientes por nome: [{}]", nome);
-        final var cliente = clienteService.buscarClientesPorNome(nome);
+        final var clientes = clienteService.buscarClientesPorNome(nome);
         log.info("Fim da solicitação para buscar clientes por nome: [{}]", nome);
-        return cliente;
+        return clientes;
     }
 
     @GetMapping("/rg/{rg}")
-    public Flux<Cliente> buscarClientesPorRg(@PathVariable final String rg) {
+    public Mono<Cliente> buscarClientesPorRg(@PathVariable final String rg) {
         log.info("Início da solicitação para buscar clientes por RG: [{}]", rg);
-        final var cliente = clienteService.buscarClientePorRg(rg);
+        final var clientes = clienteService.buscarClientePorRg(rg);
         log.info("Fim da solicitação para buscar clientes por RG: [{}]", rg);
-        return cliente;
+        return clientes;
     }
 
     @GetMapping("/email/{email}")
-    public Flux<Cliente> buscarClientesPorEmail(@PathVariable final String email) {
+    public Mono<Cliente> buscarClientesPorEmail(@PathVariable final String email) {
         log.info("Início da solicitação para buscar clientes por e-mail: [{}]", email);
-        final var cliente = clienteService.buscarClientePorEmail(email);
+        final var clientes = clienteService.buscarClientePorEmail(email);
         log.info("Fim da solicitação para buscar clientes por e-mail: [{}]", email);
-        return cliente;
+        return clientes;
     }
 
     @GetMapping("/cidade/{cidade}")
-    public Flux<Cliente> buscarClientesPorCidade(@PathVariable final String cidade) {
+    public Mono<Cliente> buscarClientesPorCidade(@PathVariable final String cidade) {
         log.info("Início da solicitação para buscar clientes por cidade: [{}]", cidade);
-        final var cliente = clienteService.buscarClientePorCidade(cidade);
+        final var clientes = clienteService.buscarClientePorCidade(cidade);
         log.info("Fim da solicitação para buscar clientes por cidade: [{}]", cidade);
-        return cliente;
+        return clientes;
     }
 
     @GetMapping("/telefone/{numero}")
-    public Flux<Cliente> buscarClientesPorNumeroTelefone(@PathVariable final String numero) {
+    public Mono<Cliente> buscarClientesPorNumeroTelefone(@PathVariable final String numero) {
         log.info("Início da solicitação para buscar clientes por número de telefone: [{}]", numero);
-        final var cliente = clienteService.buscarClientePorNumeroTelefone(numero);
+        final var clientes = clienteService.buscarClientePorNumeroTelefone(numero);
         log.info("Fim da solicitação para buscar clientes por número de telefone: [{}]", numero);
-        return cliente;
+        return clientes;
     }
 
     @GetMapping("/dataNascimento/{dataNascimento}")
-    public Flux<Cliente> buscarClientesPorDataNascimento(@PathVariable final String dataNascimento) {
+    public Mono<Cliente> buscarClientesPorDataNascimento(@PathVariable final String dataNascimento) {
         log.info("Início da solicitação para buscar clientes por data de nascimento: [{}]", dataNascimento);
-        final var cliente = clienteService.buscarClientePorDataNascimento(dataNascimento);
+        final var clientes = clienteService.buscarClientePorDataNascimento(dataNascimento);
         log.info("Fim da solicitação para buscar clientes por data de nascimento: [{}]", dataNascimento);
-        return cliente;
+        return clientes;
     }
 
     @PostMapping("/cadastro")
@@ -87,5 +87,4 @@ public class ClienteController {
         log.info("Fim da solicitação para cadastrar um novo cliente.");
         return cliente;
     }
-
 }

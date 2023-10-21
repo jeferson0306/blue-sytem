@@ -8,13 +8,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 @Data
-@Document(collection = "Email")
-public class Email {
+@Document(collection = "AtendimentoHospitalar")
+public class AtendimentoHospitalar {
 
     @Id
     private ObjectId objectId;
-    private String emailCliente;
+    private String tipoAtendimento;
+    private String observacoes;
     private Date dataCadastro;
     private Date dataAtualizacao;
-
 }

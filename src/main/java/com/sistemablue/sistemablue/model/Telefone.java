@@ -1,15 +1,21 @@
 package com.sistemablue.sistemablue.model;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Date;
 
 @Data
 @Document(collection = "Telefone")
 public class Telefone {
 
-    private Long id;
+    @Id
+    private ObjectId objectId;
     private String numero;
     private String tipo;
-    private String dataCadastro;
+    private Date dataCadastro;
+    private Date dataAtualizacao;
 
 }

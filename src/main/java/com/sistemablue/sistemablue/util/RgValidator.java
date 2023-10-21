@@ -1,7 +1,6 @@
 package com.sistemablue.sistemablue.util;
 
 import lombok.extern.slf4j.Slf4j;
-import java.util.regex.Pattern;
 
 @Slf4j
 public class RgValidator {
@@ -17,7 +16,7 @@ public class RgValidator {
             return false;
         }
 
-        final var numeroRg = rg.replaceAll("[^0-9]", "");
+        final var numeroRg = rg.replaceAll("\\D", "");
 
         if (!isValidFormat(numeroRg)) {
             log.error("Formato de RG inválido: {}", rg);

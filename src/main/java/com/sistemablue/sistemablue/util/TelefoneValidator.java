@@ -16,7 +16,7 @@ public class TelefoneValidator {
             return false;
         }
 
-        final var numeroTelefone = telefone.replaceAll("[^0-9]", "");
+        final var numeroTelefone = telefone.replaceAll("\\D", "");
 
         if (!isValidFormat(numeroTelefone)) {
             log.error("Formato de telefone inválido: {}", telefone);

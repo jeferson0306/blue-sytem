@@ -1,14 +1,15 @@
 package com.sistemablue.sistemablue.repository;
 
-import com.sistemablue.sistemablue.model.Exame;
+import com.sistemablue.sistemablue.model.CadastroDeExame;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Flux;
 
-public interface ExameRepository extends ReactiveMongoRepository<Exame, Long> {
+public interface ExameRepository extends ReactiveMongoRepository<CadastroDeExame, Long> {
 
-    Flux<Exame> findExamesById(final Long id);
-    Flux<Exame> findByDataRealizacao(final String dataRealizacao);
-    Flux<Exame> findByNome(final String nome);
+    Flux<CadastroDeExame> findCadastroDeExameByObjectId(final ObjectId objectId);
+    Flux<CadastroDeExame> findByDataRealizacao(final String dataRealizacao);
+    Flux<CadastroDeExame> findByNome(final String nome);
 
 
 

@@ -1,0 +1,597 @@
+[
+  {
+    "exame": "Ácido fólico",
+    "valorMinimo": 1.8,
+    "valorMaximo": 9,
+    "unidadesConvencionais": "ng/mL",
+    "unidadesSI": "4.1 a 20.4 nmol/L"
+  },
+  {
+    "exame": "Ácido úrico",
+    "valorMinimo": 3,
+    "valorMaximo": 7,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "178.5 a 416.5 µmol/L"
+  },
+  {
+    "exame": "ACTH (hormônio adrenocorticotrópico)",
+    "valorMinimo": 10,
+    "valorMaximo": 60,
+    "unidadesConvencionais": "pg/mL",
+    "unidadesSI": "2.2 a 13.2 pmol/L"
+  },
+  {
+    "exame": "Albumina",
+    "valorMinimo": 3.5,
+    "valorMaximo": 5.5,
+    "unidadesConvencionais": "g/dL",
+    "unidadesSI": "35 a 55 g/L"
+  },
+  {
+    "exame": "Aldosterona (Em pé)",
+    "valorMinimo": 7,
+    "valorMaximo": 20,
+    "unidadesConvencionais": "ng/dL",
+    "unidadesSI": "194 a 554 pmol/L"
+  },
+  {
+    "exame": "Aldosterona (Deitado)",
+    "valorMinimo": 2,
+    "valorMaximo": 5,
+    "unidadesConvencionais": "ng/dL",
+    "unidadesSI": "55 a 138 pmol/L"
+  },
+  {
+    "exame": "Alfa-1 antitripsina",
+    "valorMinimo": 150,
+    "valorMaximo": 350,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "27.6 a 64.5 µmol/L"
+  },
+  {
+    "exame": "Alfafetoproteína",
+    "valorMinimo": 0,
+    "valorMaximo": 10,
+    "unidadesConvencionais": "ng/dL",
+    "unidadesSI": "0 a 10 pg/L"
+  },
+  {
+    "exame": "Amilase",
+    "valorMinimo": 25,
+    "valorMaximo": 125,
+    "unidadesConvencionais": "U/L",
+    "unidadesSI": "0.42 a 2.1 µKat/L"
+  },
+  {
+    "exame": "Aminotransferase, alanina (ALT ou TGP)",
+    "valorMinimo": 10,
+    "valorMaximo": 40,
+    "unidadesConvencionais": "U/L",
+    "unidadesSI": "0.17 a 0.68 µKat/L"
+  },
+  {
+    "exame": "Aminotransferase, aspartato (AST ou TGO)",
+    "valorMinimo": 10,
+    "valorMaximo": 40,
+    "unidadesConvencionais": "U/L",
+    "unidadesSI": "0.17 a 0.68 µKat/L"
+  },
+  {
+    "exame": "Amônia",
+    "valorMinimo": 40,
+    "valorMaximo": 70,
+    "unidadesConvencionais": "µg/dL",
+    "unidadesSI": "23.5 a 41.1 µmol/L"
+  },
+  {
+    "exame": "Cálcio",
+    "valorMinimo": 8.6,
+    "valorMaximo": 10.2,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "2.2 a 2.6 mmol/L"
+  },
+  {
+    "exame": "Cálcio ionizado",
+    "valorMinimo": 4.5,
+    "valorMaximo": 4.9,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "1.12 a 1.23 mmol/L"
+  },
+  {
+    "exame": "Capacidade total de ligação do ferro",
+    "valorMinimo": 250,
+    "valorMaximo": 310,
+    "unidadesConvencionais": "µg/dL",
+    "unidadesSI": "44.8 a 55.5 µmol/L"
+  },
+  {
+    "exame": "Cloreto",
+    "valorMinimo": 98,
+    "valorMaximo": 106,
+    "unidadesConvencionais": "mEq/L",
+    "unidadesSI": "98 a 106 mmol/L"
+  },
+  {
+    "exame": "Colesterol HDL (Mulheres)",
+    "valorMinimo": null,
+    "valorMaximo": 50,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "null a 1.3 mmol/L"
+  },
+  {
+    "exame": "Colesterol HDL (Homens)",
+    "valorMinimo": null,
+    "valorMaximo": 40,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "null a 1 mmol/L"
+  },
+  {
+    "exame": "Colesterol LDL (Ótimo)",
+    "valorMinimo": null,
+    "valorMaximo": 100,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "null a 2.6 mmol/L"
+  },
+  {
+    "exame": "Colesterol LDL (Quase ideal)",
+    "valorMinimo": 100,
+    "valorMaximo": 129,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "2.6 a 3.3 mmol/L"
+  },
+  {
+    "exame": "Colesterol LDL (Moderado alto)",
+    "valorMinimo": 130,
+    "valorMaximo": 159,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "3.4 a 4.1 mmol/L"
+  },
+  {
+    "exame": "Colesterol LDL (Alto)",
+    "valorMinimo": 160,
+    "valorMaximo": 189,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "4.1 a 4.9 mmol/L"
+  },
+  {
+    "exame": "Colesterol LDL (Muito alto)",
+    "valorMinimo": 190,
+    "valorMaximo": null,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "null a 4.9 mmol/L"
+  },
+  {
+    "exame": "Colesterol Total (Desejável)",
+    "valorMinimo": null,
+    "valorMaximo": 200,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "null a 5.2 mmol/L"
+  },
+  {
+    "exame": "Colesterol Total (Moderado alto)",
+    "valorMinimo": 200,
+    "valorMaximo": 239,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "5.2 a 6.2 mmol/L"
+  },
+  {
+    "exame": "Colesterol Total (Alto)",
+    "valorMinimo": 240,
+    "valorMaximo": null,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "null"
+  },
+  {
+    "exame": "Complemento C3",
+    "valorMinimo": 100,
+    "valorMaximo": 233,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "1 a 2.3 g/L"
+  },
+  {
+    "exame": "Complemento C4",
+    "valorMinimo": 14,
+    "valorMaximo": 48,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "0.1 a 0.5 g/L"
+  },
+  {
+    "exame": "Complemento CH50",
+    "valorMinimo": 110,
+    "valorMaximo": 190,
+    "unidadesConvencionais": "U/mL",
+    "unidadesSI": null
+  },
+  {
+    "exame": "Creatinina",
+    "valorMinimo": 0.7,
+    "valorMaximo": 1.3,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "61.9 a 115 µmol/L"
+  },
+  {
+    "exame": "D-dímero",
+    "valorMinimo": null,
+    "valorMaximo": 0.5,
+    "unidadesConvencionais": "µg/mL ou mg/L",
+    "unidadesSI": "< 3 nmol/L"
+  },
+  {
+    "exame": "Enzima conversora de angiotensina",
+    "valorMinimo": 8,
+    "valorMaximo": 53,
+    "unidadesConvencionais": "U/L",
+    "unidadesSI": null
+  },
+  {
+    "exame": "Ferritina (Mulheres)",
+    "valorMinimo": 24,
+    "valorMaximo": 307,
+    "unidadesConvencionais": "ng/mL",
+    "unidadesSI": "54 a 690 pmol/L"
+  },
+  {
+    "exame": "Ferritina (Homens)",
+    "valorMinimo": 24,
+    "valorMaximo": 336,
+    "unidadesConvencionais": "ng/mL",
+    "unidadesSI": "54 a 755 pmol/L"
+  },
+  {
+    "exame": "Ferro",
+    "valorMinimo": 50,
+    "valorMaximo": 150,
+    "unidadesConvencionais": "µg/dL",
+    "unidadesSI": "9 a 27 µmol/L"
+  },
+  {
+    "exame": "Fosfatase alcalina",
+    "valorMinimo": 30,
+    "valorMaximo": 120,
+    "unidadesConvencionais": "U/L",
+    "unidadesSI": null
+  },
+  {
+    "exame": "Fósforo",
+    "valorMinimo": 3,
+    "valorMaximo": 4.5,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "0.97 a 1.45 mmol/L"
+  },
+  {
+    "exame": "Glicemia em jejum",
+    "valorMinimo": 70,
+    "valorMaximo": 99,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "3.9 a 5.5 mmol/L"
+  },
+  {
+    "exame": "Hematócrito (Mulheres)",
+    "valorMinimo": 37,
+    "valorMaximo": 47,
+    "unidadesConvencionais": "%",
+    "unidadesSI": null
+  },
+  {
+    "exame": "Hematócrito (Homens)",
+    "valorMinimo": 40,
+    "valorMaximo": 54,
+    "unidadesConvencionais": "%",
+    "unidadesSI": null
+  },
+  {
+    "exame": "Hemoglobina (Mulheres)",
+    "valorMinimo": 12,
+    "valorMaximo": 16,
+    "unidadesConvencionais": "g/dL",
+    "unidadesSI": null
+  },
+  {
+    "exame": "Hemoglobina (Homens)",
+    "valorMinimo": 13,
+    "valorMaximo": 18,
+    "unidadesConvencionais": "g/dL",
+    "unidadesSI": null
+  },
+  {
+    "exame": "Hemoglobina glicada (A1c)",
+    "valorMinimo": 4,
+    "valorMaximo": 5.6,
+    "unidadesConvencionais": "%",
+    "unidadesSI": "20 a 37 mmol/mol"
+  },
+  {
+    "exame": "Hemoglobina glicada (Média estimada)",
+    "valorMinimo": 70,
+    "valorMaximo": 100,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "3.9 a 5.5 mmol/L"
+  },
+  {
+    "exame": "Hormônio estimulante da tireoide (TSH)",
+    "valorMinimo": 0.4,
+    "valorMaximo": 4,
+    "unidadesConvencionais": "µU/mL",
+    "unidadesSI": "0.4 a 4 mU/L"
+  },
+  {
+    "exame": "Hormônio luteinizante (LH)",
+    "valorMinimo": 1.5,
+    "valorMaximo": 9.3,
+    "unidadesConvencionais": "mIU/mL",
+    "unidadesSI": "1.5 a 9.3 IU/L"
+  },
+  {
+    "exame": "Hormônio tireoestimulante ultra-sensível (usTSH)",
+    "valorMinimo": 0.27,
+    "valorMaximo": 4.2,
+    "unidadesConvencionais": "µU/mL",
+    "unidadesSI": "0.27 a 4.2 mU/L"
+  },
+  {
+    "exame": "Hormônio folículo-estimulante (FSH)",
+    "valorMinimo": 1.4,
+    "valorMaximo": 18.1,
+    "unidadesConvencionais": "mIU/mL",
+    "unidadesSI": "1.4 a 18.1 IU/L"
+  },
+  {
+    "exame": "Hormônio do crescimento (GH)",
+    "valorMinimo": 0,
+    "valorMaximo": 5,
+    "unidadesConvencionais": "ng/mL",
+    "unidadesSI": "0 a 10 ng/L"
+  },
+  {
+    "exame": "Hormônio paratireoidiano (PTH)",
+    "valorMinimo": 10,
+    "valorMaximo": 65,
+    "unidadesConvencionais": "pg/mL",
+    "unidadesSI": "1.06 a 6.89 pmol/L"
+  },
+  {
+    "exame": "Insulina",
+    "valorMinimo": 2,
+    "valorMaximo": 25,
+    "unidadesConvencionais": "µU/mL",
+    "unidadesSI": "2 a 25 mU/L"
+  },
+  {
+    "exame": "LDH (desidrogenase lática)",
+    "valorMinimo": 100,
+    "valorMaximo": 200,
+    "unidadesConvencionais": "U/L",
+    "unidadesSI": "1.67 a 3.33 µKat/L"
+  },
+  {
+    "exame": "Lipase",
+    "valorMinimo": 7,
+    "valorMaximo": 60,
+    "unidadesConvencionais": "U/L",
+    "unidadesSI": "0.12 a 1.0 µKat/L"
+  },
+  {
+    "exame": "Magnésio",
+    "valorMinimo": 1.6,
+    "valorMaximo": 2.6,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "0.66 a 1.07 mmol/L"
+  },
+  {
+    "exame": "Nitrato (urina)",
+    "valorMinimo": 5,
+    "valorMaximo": 20,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "1.35 a 5.4 mmol/L"
+  },
+  {
+    "exame": "Nitrito (urina)",
+    "valorMinimo": "Negativo",
+    "valorMaximo": "Negativo",
+    "unidadesConvencionais": null,
+    "unidadesSI": null
+  },
+  {
+    "exame": "Óxido nítrico (NO) (urina)",
+    "valorMinimo": 0,
+    "valorMaximo": 8,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "0 a 572.9 µmol/L"
+  },
+  {
+    "exame": "Oximetria de pulso",
+    "valorMinimo": 95,
+    "valorMaximo": 100,
+    "unidadesConvencionais": "%",
+    "unidadesSI": null
+  },
+  {
+    "exame": "Prolactina",
+    "valorMinimo": 3.2,
+    "valorMaximo": 26.7,
+    "unidadesConvencionais": "ng/mL",
+    "unidadesSI": "3.2 a 26.7 µg/L"
+  },
+  {
+    "exame": "Proteína C-reativa (PCR)",
+    "valorMinimo": 0,
+    "valorMaximo": 0.3,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "0 a 2.85 mg/L"
+  },
+  {
+    "exame": "Proteína total",
+    "valorMinimo": 6.6,
+    "valorMaximo": 8.7,
+    "unidadesConvencionais": "g/dL",
+    "unidadesSI": "66 a 87 g/L"
+  },
+  {
+    "exame": "Proteína total da urina (24h)",
+    "valorMinimo": null,
+    "valorMaximo": 150,
+    "unidadesConvencionais": "mg/24h",
+    "unidadesSI": "null a 150 mg/24h"
+  },
+  {
+    "exame": "Sódio",
+    "valorMinimo": 135,
+    "valorMaximo": 145,
+    "unidadesConvencionais": "mEq/L",
+    "unidadesSI": "135 a 145 mmol/L"
+  },
+  {
+    "exame": "T4 livre (Tiroxina livre)",
+    "valorMinimo": 0.7,
+    "valorMaximo": 1.9,
+    "unidadesConvencionais": "ng/dL",
+    "unidadesSI": "9 a 25 pmol/L"
+  },
+  {
+    "exame": "T3 livre (Triiodotironina livre)",
+    "valorMinimo": 2.3,
+    "valorMaximo": 4.2,
+    "unidadesConvencionais": "pg/mL",
+    "unidadesSI": "3.5 a 6.5 pmol/L"
+  },
+  {
+    "exame": "Tempo de protrombina (TP)",
+    "valorMinimo": 11.5,
+    "valorMaximo": 13.5,
+    "unidadesConvencionais": "s",
+    "unidadesSI": "11.5 a 13.5 s"
+  },
+  {
+    "exame": "Tempo de tromboplastina parcial ativada (TTPA)",
+    "valorMinimo": 25,
+    "valorMaximo": 35,
+    "unidadesConvencionais": "s",
+    "unidadesSI": "25 a 35 s"
+  },
+  {
+    "exame": "Tensão de oxigênio (PaO2)",
+    "valorMinimo": 80,
+    "valorMaximo": 100,
+    "unidadesConvencionais": "mmHg",
+    "unidadesSI": "10.6 a 13.3 kPa"
+  },
+  {
+    "exame": "Testosterona livre",
+    "valorMinimo": 0.95,
+    "valorMaximo": 4.3,
+    "unidadesConvencionais": "ng/dL",
+    "unidadesSI": "0.033 a 0.149 nmol/L"
+  },
+  {
+    "exame": "Testosterona total",
+    "valorMinimo": 241,
+    "valorMaximo": 827,
+    "unidadesConvencionais": "ng/dL",
+    "unidadesSI": "8.36 a 28.7 nmol/L"
+  },
+  {
+    "exame": "Tiroglobulina (TG)",
+    "valorMinimo": 1.6,
+    "valorMaximo": 60,
+    "unidadesConvencionais": "ng/mL",
+    "unidadesSI": "1.6 a 60 µg/L"
+  },
+  {
+    "exame": "Transferrina",
+    "valorMinimo": 200,
+    "valorMaximo": 400,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "2.86 a 5.72 g/L"
+  },
+  {
+    "exame": "Triglicerídeos (Ótimo)",
+    "valorMinimo": null,
+    "valorMaximo": 150,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "null a 1.69 mmol/L"
+  },
+  {
+    "exame": "Triglicerídeos (Quase ideal)",
+    "valorMinimo": 150,
+    "valorMaximo": 199,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "1.69 a 2.25 mmol/L"
+  },
+  {
+    "exame": "Triglicerídeos (Moderado alto)",
+    "valorMinimo": 200,
+    "valorMaximo": 499,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "2.26 a 5.63 mmol/L"
+  },
+  {
+    "exame": "Triglicerídeos (Alto)",
+    "valorMinimo": 500,
+    "valorMaximo": null,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "null a 5.63 mmol/L"
+  },
+  {
+    "exame": "Troponina I",
+    "valorMinimo": 0,
+    "valorMaximo": 0.04,
+    "unidadesConvencionais": "ng/mL",
+    "unidadesSI": "0 a 0.04 µg/L"
+  },
+  {
+    "exame": "Troponina T",
+    "valorMinimo": 0,
+    "valorMaximo": 0.1,
+    "unidadesConvencionais": "ng/mL",
+    "unidadesSI": "0 a 0.1 µg/L"
+  },
+  {
+    "exame": "Uréia (BUN)",
+    "valorMinimo": 7,
+    "valorMaximo": 20,
+    "unidadesConvencionais": "mg/dL",
+    "unidadesSI": "2.5 a 7.1 mmol/L"
+  },
+  {
+    "exame": "Urato (urina)",
+    "valorMinimo": 250,
+    "valorMaximo": 750,
+    "unidadesConvencionais": "mg/24h",
+    "unidadesSI": "1.49 a 4.47 mmol/24h"
+  },
+  {
+    "exame": "Urina tipo I (EAS)",
+    "valorMinimo": null,
+    "valorMaximo": null,
+    "unidadesConvencionais": null,
+    "unidadesSI": null
+  },
+  {
+    "exame": "Vitamina B12",
+    "valorMinimo": 200,
+    "valorMaximo": 900,
+    "unidadesConvencionais": "pg/mL",
+    "unidadesSI": "147 a 664 pmol/L"
+  },
+  {
+    "exame": "Volume corpuscular médio (VCM)",
+    "valorMinimo": 80,
+    "valorMaximo": 100,
+    "unidadesConvencionais": "fL",
+    "unidadesSI": null
+  },
+  {
+    "exame": "Volume plaquetário médio (VPM)",
+    "valorMinimo": 7.4,
+    "valorMaximo": 10.4,
+    "unidadesConvencionais": "fL",
+    "unidadesSI": null
+  },
+  {
+    "exame": "Zinco",
+    "valorMinimo": 70,
+    "valorMaximo": 120,
+    "unidadesConvencionais": "µg/dL",
+    "unidadesSI": "10.7 a 18.4 µmol/L"
+  }
+]

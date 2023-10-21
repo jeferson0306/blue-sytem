@@ -5,8 +5,9 @@ import com.sistemablue.sistemablue.repository.ClienteRepository;
 import com.sistemablue.sistemablue.util.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.bson.types.ObjectId;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Slf4j
@@ -16,66 +17,69 @@ public class ClienteService {
 
     private final ClienteRepository clienteRepository;
 
+    @Cacheable("clienteCpfCache")
     public Mono<Cliente> buscarClientePorCpf(final String cpf) {
         log.info("Buscando cliente por CPF: [{}]", cpf);
         final var documentoValido = String.valueOf(CpfValidator.isCPF(cpf));
-        log.info("Busca finalizada para o CPF: [{}]", documentoValido);
+        log.info("Busca finalizada para o CPF [{}] com validacao = [{}]", cpf, documentoValido);
         return clienteRepository.findByCpf(cpf);
     }
 
-    public Mono<Cliente> buscarClientePorId(final Long id) {
-        log.info("Buscando cliente por ID: [{}]", id);
-        final var cliente = clienteRepository.findById(id);
-        log.info("Busca finalizada para o ID: [{}]", id);
+    public Mono<Cliente> buscarClientePorId(final ObjectId objectId) {
+        log.info("Buscando cliente por ID: [{}]", objectId);
+        final var cliente = clienteRepository.findByObjectId(objectId);
+        log.info("Busca finalizada para o ID [{}] com validação = [{}]", cliente, objectId);
         return cliente;
     }
 
-    public Flux<Cliente> buscarClientesPorNome(final String nome) {
+
+    public Mono<Cliente> buscarClientesPorNome(final String nome) {
         log.info("Buscando clientes por nome: [{}]", nome);
         final var nomeValido = NomeValidator.isNomeValido(nome);
-        log.info("Busca finalizada para o nome: [{}]", nomeValido);
+        log.info("Busca finalizada para o nome [{}] com validacao = [{}]", nome, nomeValido);
         return clienteRepository.findByNome(nome);
     }
 
-    public Flux<Cliente> buscarClientePorRg(final String rg) {
-        log.info("Buscando clientes por RG: [{}]", rg);
+    public Mono<Cliente> buscarClientePorRg(final String rg) {
+        log.info("Buscando clientes por rg: [{}]", rg);
         final var rgValido = RgValidator.isRgValido(rg);
-        log.info("Busca finalizada para o rg [{}]", rgValido);
+        log.info("Busca finalizada para o rg [{}] com validacao = [{}]", rg, rgValido);
         return clienteRepository.findByRg(rg);
     }
 
-    public Flux<Cliente> buscarClientePorEmail(final String email) {
+    @Cacheable("clienteEmailCache")
+    public Mono<Cliente> buscarClientePorEmail(final String email) {
         log.info("Buscando clientes por e-mail: [{}]", email);
         final var emailValido = EmailValidator.isEmailValido(email);
-        log.info("Busca finalizada para o e-mail: [{}]", emailValido);
-        return clienteRepository.findByEmailsEmail(email);
+        log.info("Busca finalizada para o e-mail [{}] com validacao = [{}]", email, emailValido);
+        return clienteRepository.findClienteByEmail(email);
     }
 
-    public Flux<Cliente> buscarClientePorCidade(final String cidade) {
+    public Mono<Cliente> buscarClientePorCidade(final String cidade) {
         log.info("Buscando clientes por cidade: [{}]", cidade);
-        final var cliente = clienteRepository.findByEnderecosCidade(cidade);
-        log.info("Busca finalizada para a cidade: [{}]", cidade);
-        return cliente;
+        final var cidadeValida = clienteRepository.findClienteByEnderecoCidade(cidade);
+        log.info("Busca finalizada para a cidade [{}] com validacao = [{}]", cidade, cidadeValida);
+        return cidadeValida;
     }
 
-    public Flux<Cliente> buscarClientePorNumeroTelefone(final String numero) {
+    public Mono<Cliente> buscarClientePorNumeroTelefone(final String numero) {
         log.info("Buscando clientes por número de telefone: [{}]", numero);
-        final var telefone = String.valueOf(TelefoneValidator.isTelefoneValido(numero));
-        log.info("Busca finalizada para o número de telefone: [{}]", telefone);
-        return clienteRepository.findByTelefonesNumero(telefone);
+        final var telefoneValido = String.valueOf(TelefoneValidator.isTelefoneValido(numero));
+        log.info("Busca finalizada para o número de telefone [{}] com validacao = [{}]", numero, telefoneValido);
+        return clienteRepository.findClienteByTelefoneNumero(numero);
     }
 
-    public Flux<Cliente> buscarClientePorDataNascimento(final String dataNascimento) {
+    public Mono<Cliente> buscarClientePorDataNascimento(final String dataNascimento) {
         log.info("Buscando clientes por data de nascimento: [{}]", dataNascimento);
-        final var dataNascimentoValida = DataNascimentoValidator.isDataNascimentoValida(dataNascimento);
-        log.info("Busca finalizada para a data de nascimento: [{}]", dataNascimentoValida);
+        final var dataNascimentoValida = DataValidator.isDataNascimentoValida(dataNascimento);
+        log.info("Busca finalizada para a data de nascimento [{}] com validacao = [{}]", dataNascimento, dataNascimentoValida);
         return clienteRepository.findByDataNascimento(dataNascimento);
     }
 
     public Mono<Cliente> cadastrarNovoCliente(final Cliente cliente) {
         log.info("Cadastrando um novo cliente: [{}]", cliente.getNome());
         final var clienteCadastrado = clienteRepository.save(cliente);
-        log.info("Cliente cadastrado com sucesso: [{}]", cliente.getNome());
+        log.info("Cliente cadastrado com sucesso [{}] com validacao = [{}]", cliente.getNome(), clienteCadastrado);
         return clienteCadastrado;
     }
 

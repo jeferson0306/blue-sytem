@@ -1,13 +1,18 @@
 package com.sistemablue.sistemablue.model;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.Date;
 
 @Data
 @Document(collection = "Endereco")
 public class Endereco {
 
-    private Long id;
+    @Id
+    private ObjectId objectId;
     private String logradouro;
     private String numero;
     private String bairro;
@@ -16,6 +21,7 @@ public class Endereco {
     private String pais;
     private String cep;
     private String complemento;
-    private String dataCadastro;
+    private Date dataCadastro;
+    private Date dataAtualizacao;
 
 }

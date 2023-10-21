@@ -1,6 +1,7 @@
 package com.sistemablue.sistemablue.repository;
 
 import com.sistemablue.sistemablue.model.Cliente;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -8,13 +9,14 @@ import reactor.core.publisher.Mono;
 public interface ClienteRepository extends ReactiveMongoRepository<Cliente, Long> {
 
     Mono<Cliente> findById(final Long id);
-    Flux<Cliente> findByNome(final String nome);
+    Mono<Cliente> findByObjectId(final ObjectId objectId);
+    Mono<Cliente> findByNome(final String nome);
     Mono<Cliente> findByCpf(final String cpf);
-    Flux<Cliente> findByRg(final String rg);
-    Flux<Cliente> findByDataNascimento(final String dataNascimento);
-    Flux<Cliente> findByEmailsEmail(final String email);
-    Flux<Cliente> findByTelefonesNumero(final String numero);
-    Flux<Cliente> findByEnderecosCidade(final String cidade);
+    Mono<Cliente> findByRg(final String rg);
+    Mono<Cliente> findByDataNascimento(final String dataNascimento);
+    Mono<Cliente> findClienteByEmail(final String email);
+    Mono<Cliente> findClienteByTelefoneNumero(final String numero);
+    Mono<Cliente> findClienteByEnderecoCidade(final String cidade);
     Flux<Cliente> findAll();
 
 }
