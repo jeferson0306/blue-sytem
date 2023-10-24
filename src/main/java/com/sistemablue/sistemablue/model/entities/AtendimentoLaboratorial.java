@@ -1,7 +1,7 @@
 package com.sistemablue.sistemablue.model.entities;
 
 
-import com.sistemablue.sistemablue.model.exame.CadastrarExame;
+import com.sistemablue.sistemablue.model.exame.ExamesCadastrados;
 import lombok.Data;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -19,6 +19,6 @@ public class AtendimentoLaboratorial {
     private String observacoes;
     private Date dataCadastro;
     private Date dataAtualizacao;
-    private CadastrarExame cadastrarExame;
+    private ExamesCadastrados examesCadastrados;
 
 }

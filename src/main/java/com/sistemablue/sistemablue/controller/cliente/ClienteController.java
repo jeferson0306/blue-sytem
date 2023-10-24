@@ -1,4 +1,4 @@
-package com.sistemablue.sistemablue.controller;
+package com.sistemablue.sistemablue.controller.cliente;
 
 import com.sistemablue.sistemablue.model.entities.Cliente;
 import com.sistemablue.sistemablue.service.ClienteService;
@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/clientes")
+@RequestMapping("/api/v1/consultar-clientes")
 public class ClienteController {
 
     private final ClienteService clienteService;

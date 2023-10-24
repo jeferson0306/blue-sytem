@@ -9,7 +9,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Data
-public class CadasroCliente {
+public class ClienteDto {
 
     private String nome;
     private String cpf;

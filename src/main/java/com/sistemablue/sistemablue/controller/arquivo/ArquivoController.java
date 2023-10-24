@@ -1,4 +1,4 @@
-package com.sistemablue.sistemablue.controller;
+package com.sistemablue.sistemablue.controller.arquivo;
 
 import com.sistemablue.sistemablue.model.arquivo.ArquivoDto;
 import com.sistemablue.sistemablue.service.ArquivoService;
@@ -15,7 +15,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1/valores")
+@RequestMapping("/api/v1/arquivos")
 @RequiredArgsConstructor
 public class ArquivoController {
 
@@ -33,7 +33,7 @@ public class ArquivoController {
     }
 
     @ResponseBody
-    @GetMapping("/buscar-json")
+    @GetMapping("/ler-json")
     public String buscarExamesJson() {
         log.info("Recebida solicitação para ler o arquivo json.");
         final var json = arquivoService.lerArquivoJson();

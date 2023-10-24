@@ -8,12 +8,11 @@ import org.springframework.data.annotation.Id;
 import java.util.Date;
 
 @Data
-public class CadastrarExame {
+public class ExamesCadastrados {
 
     @Id
     private ObjectId objectId;
     private Long codigo;
-    private String codigoTiss;
     private String nome;
     private String amostra;
     private String unidade;

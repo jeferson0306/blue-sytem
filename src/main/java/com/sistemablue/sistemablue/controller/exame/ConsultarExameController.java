@@ -1,8 +1,8 @@
-package com.sistemablue.sistemablue.controller;
+package com.sistemablue.sistemablue.controller.exame;
 
 import com.sistemablue.sistemablue.exception.ExameException;
-import com.sistemablue.sistemablue.model.exame.CadastrarExame;
-import com.sistemablue.sistemablue.service.ExameService;
+import com.sistemablue.sistemablue.model.exame.ExamesCadastrados;
+import com.sistemablue.sistemablue.service.ConsultarExameService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
@@ -13,31 +13,31 @@ import reactor.core.publisher.Flux;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/exames")
-public class ExameController {
+@RequestMapping("/api/v1/consultar-exames")
+public class ConsultarExameController {
 
-    private final ExameService exameService;
+    private final ConsultarExameService consultarExameService;
 
     @GetMapping("/{objectId}/exames")
-    public Flux<CadastrarExame> buscarExamesDoCliente(@PathVariable final ObjectId objectId) {
+    public Flux<ExamesCadastrados> buscarExamesDoCliente(@PathVariable final ObjectId objectId) {
         log.info("Buscando exames do cliente: [{}]", objectId);
-        final var cliente = exameService.buscarExamesDoCliente(objectId);
+        final var cliente = consultarExameService.buscarExamesDoCliente(objectId);
         log.info("Exames do cliente: [{}] encontrados para o id: [{}]", cliente, objectId);
         return cliente;
     }
 
     @GetMapping("/cliente/{nomeDoCliente}/exames")
-    public Flux<CadastrarExame> buscarExamesPorNomeDoCliente(@PathVariable final String nomeDoCliente) {
+    public Flux<ExamesCadastrados> buscarExamesPorNomeDoCliente(@PathVariable final String nomeDoCliente) {
         log.info("Buscando exames do cliente por nome: [{}]", nomeDoCliente);
-        final var cliente = exameService.buscarExamesPorNomeDoCliente(nomeDoCliente);
+        final var cliente = consultarExameService.buscarExamesPorNomeDoCliente(nomeDoCliente);
         log.info("Exames do cliente: [{}] encontrados para o nome: [{}]", cliente, nomeDoCliente);
         return cliente;
     }
 
     @GetMapping("/data/{dataRealizacao}/exames")
-    public Flux<CadastrarExame> buscarExamesPorDataRealizacao(@PathVariable final String dataRealizacao) {
+    public Flux<ExamesCadastrados> buscarExamesPorDataRealizacao(@PathVariable final String dataRealizacao) {
         log.info("Buscando exames do cliente por data de realização: [{}]", dataRealizacao);
-        final var cliente = exameService.buscarExamesPorDataRealizacao(dataRealizacao);
+        final var cliente = consultarExameService.buscarExamesPorDataRealizacao(dataRealizacao);
         log.info("Exames do cliente: [{}] encontrados para a data: [{}]", cliente, dataRealizacao);
         return cliente;
     }
