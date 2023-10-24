@@ -1,4 +1,4 @@
-package com.sistemablue.sistemablue.model;
+package com.sistemablue.sistemablue.model.exame;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

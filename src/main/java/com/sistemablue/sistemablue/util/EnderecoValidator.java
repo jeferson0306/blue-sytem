@@ -1,6 +1,6 @@
 package com.sistemablue.sistemablue.util;
 
-import com.sistemablue.sistemablue.model.Endereco;
+import com.sistemablue.sistemablue.model.entities.Endereco;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

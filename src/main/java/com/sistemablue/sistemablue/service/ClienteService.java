@@ -1,6 +1,6 @@
 package com.sistemablue.sistemablue.service;
 
-import com.sistemablue.sistemablue.model.Cliente;
+import com.sistemablue.sistemablue.model.entities.Cliente;
 import com.sistemablue.sistemablue.repository.ClienteRepository;
 import com.sistemablue.sistemablue.util.*;
 import lombok.RequiredArgsConstructor;

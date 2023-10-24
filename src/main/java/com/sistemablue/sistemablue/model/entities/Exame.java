@@ -1,4 +1,4 @@
-package com.sistemablue.sistemablue.model;
+package com.sistemablue.sistemablue.model.entities;
 
 import lombok.Data;
 import org.bson.types.ObjectId;
@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Data
 @Document(collection = "Exame")
-public class CadastroDeExame {
+public class Exame {
 
     @Id
     private ObjectId objectId;
@@ -27,5 +27,5 @@ public class CadastroDeExame {
     private Date dataRealizacao;
     private Date dataCadastro;
     private Date dataAtualizacao;
-    private Unimed unimed;
+
 }

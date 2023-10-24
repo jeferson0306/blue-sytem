@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 @Slf4j
 @Configuration
-public class DatabaseConfig extends AbstractMongoClientConfiguration {
+public class MongoConfig extends AbstractMongoClientConfiguration {
 
     @Value("${spring.data.mongodb.host}")
     private String mongoHost;

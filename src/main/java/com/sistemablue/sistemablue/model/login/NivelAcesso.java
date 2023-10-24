@@ -1,4 +1,4 @@
-package com.sistemablue.sistemablue.model;
+package com.sistemablue.sistemablue.model.login;
 
 import lombok.Data;
 

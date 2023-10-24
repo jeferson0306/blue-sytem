@@ -1,7 +1,7 @@
 package com.sistemablue.sistemablue.controller;
 
-import com.sistemablue.sistemablue.model.ValoresDeReferenciaExames;
-import com.sistemablue.sistemablue.service.ArquivoExameService;
+import com.sistemablue.sistemablue.model.arquivo.ArquivoDto;
+import com.sistemablue.sistemablue.service.ArquivoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,17 +17,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/valores")
 @RequiredArgsConstructor
-public class ArquivoExameController {
+public class ArquivoController {
 
-    private final ArquivoExameService arquivoExameService;
+    private final ArquivoService arquivoService;
 
     @Value("${arquivo.name}")
     private String arquivoName;
 
     @GetMapping("/ler-excel")
-    public List<ValoresDeReferenciaExames> lerExcel() throws IOException {
+    public List<ArquivoDto> lerExcel() throws IOException {
         log.info("Iniciando a leitura do arquivo {}", arquivoName);
-        final var excelReader = new ArquivoExameService();
+        final var excelReader = new ArquivoService();
         log.info("Finalizando a leitura do arquivo {}", arquivoName);
         return excelReader.lerExamesDoExcel();
     }
@@ -36,7 +36,7 @@ public class ArquivoExameController {
     @GetMapping("/buscar-json")
     public String buscarExamesJson() {
         log.info("Recebida solicitação para ler o arquivo json.");
-        final var json = arquivoExameService.lerArquivoJson();
+        final var json = arquivoService.lerArquivoJson();
         log.info("Finalizada a solicitação de leitura do arquivo json.");
         return json;
     }

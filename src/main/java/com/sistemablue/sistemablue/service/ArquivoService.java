@@ -1,6 +1,6 @@
 package com.sistemablue.sistemablue.service;
 
-import com.sistemablue.sistemablue.model.ValoresDeReferenciaExames;
+import com.sistemablue.sistemablue.model.arquivo.ArquivoDto;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -18,7 +18,7 @@ import org.springframework.util.FileCopyUtils;
 
 @Slf4j
 @Service
-public class ArquivoExameService {
+public class ArquivoService {
 
     @Value("${arquivo.excel.path}")
     private String arquivoExcelPath;
@@ -29,7 +29,7 @@ public class ArquivoExameService {
     @Value("${arquivo.json.name.path}")
     private String arquivoJsonPath;
 
-    public List<ValoresDeReferenciaExames> lerExamesDoExcel() throws IOException {
+    public List<ArquivoDto> lerExamesDoExcel() throws IOException {
 
         try (final var fileInputStream = new FileInputStream(arquivoExcelPath)) {
 
@@ -41,7 +41,7 @@ public class ArquivoExameService {
 
             rowIterator.next();
 
-            final var exames = new ArrayList<ValoresDeReferenciaExames>();
+            final var exames = new ArrayList<ArquivoDto>();
 
             while (rowIterator.hasNext()) {
 
@@ -51,7 +51,7 @@ public class ArquivoExameService {
                 final var valorMinimo = cellIterator.next().getStringCellValue();
                 final var valorMaximo = cellIterator.next().getStringCellValue();
                 final var unidadeReferencia = cellIterator.next().getStringCellValue();
-                final var resultado = new ValoresDeReferenciaExames(exame, valorMinimo, valorMaximo, unidadeReferencia);
+                final var resultado = new ArquivoDto(exame, valorMinimo, valorMaximo, unidadeReferencia);
                 exames.add(resultado);
             }
 

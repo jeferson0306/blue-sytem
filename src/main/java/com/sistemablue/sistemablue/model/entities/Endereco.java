@@ -1,4 +1,4 @@
-package com.sistemablue.sistemablue.model;
+package com.sistemablue.sistemablue.model.entities;
 
 import lombok.Data;
 import org.bson.types.ObjectId;

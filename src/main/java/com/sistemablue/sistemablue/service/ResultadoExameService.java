@@ -1,10 +1,9 @@
 package com.sistemablue.sistemablue.service;
 
-import com.sistemablue.sistemablue.model.Cliente;
-import com.sistemablue.sistemablue.model.ExameLaboratorio;
-import com.sistemablue.sistemablue.model.ExameReferencia;
-import com.sistemablue.sistemablue.model.ResultadoDeExame;
-import lombok.RequiredArgsConstructor;
+import com.sistemablue.sistemablue.model.entities.Cliente;
+import com.sistemablue.sistemablue.model.exame.RealizacaoExame;
+import com.sistemablue.sistemablue.model.exame.ValorReferencia;
+import com.sistemablue.sistemablue.model.exame.ResultadoDeExame;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +19,7 @@ public class ResultadoExameService {
 
 //    List<ExameReferencia> referencias = carregarDadosDeReferencia();
 
-    public static void verificarResultados(final Cliente cliente, final List<ResultadoDeExame> resultados, final List<ExameReferencia> referencias) {
+    public static void verificarResultados(final Cliente cliente, final List<ResultadoDeExame> resultados, final List<ValorReferencia> referencias) {
 
         resultados.forEach(resultadoDeExame -> referencias.stream().filter(referencia -> referencia.getNomeExame().equalsIgnoreCase(resultadoDeExame.getNome())).findFirst().ifPresent(referencia -> {
 
@@ -40,8 +39,8 @@ public class ResultadoExameService {
 
             resultadoDeExame.setFlag(flag);
 
-            final var exameLaboratorio = new ExameLaboratorio();
-            exameLaboratorio.setNome(resultadoDeExame.getNome());
+            final var exameLaboratorio = new RealizacaoExame();
+            exameLaboratorio.setNomeExame(resultadoDeExame.getNome());
             exameLaboratorio.setUnidade(referencia.getUnidade());
             exameLaboratorio.setResultado(String.valueOf(resultadoDeExame.getResultado()));
             exameLaboratorio.setValorDeReferencia(String.format("%s - %s", valorMinimo, valorMaximo));

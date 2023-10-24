@@ -1,4 +1,4 @@
-package com.sistemablue.sistemablue.model;
+package com.sistemablue.sistemablue.model.entities;
 
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Unimed")
 public class Unimed {
 
-    private String codigo;
+    private String codigoUnimed;
     private String tissTipoTabela;
     private String tissCodigo;
     private String descricao;

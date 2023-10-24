@@ -1,4 +1,4 @@
-package com.sistemablue.sistemablue.model;
+package com.sistemablue.sistemablue.model.entities;
 
 import lombok.Data;
 import org.bson.types.ObjectId;
@@ -22,6 +22,6 @@ public class Cliente {
     private Email email;
     private Telefone telefone;
     private Endereco endereco;
-    private Atendimento atendimento;
+    private AtendimentoPaciente atendimentoPaciente;
 
 }

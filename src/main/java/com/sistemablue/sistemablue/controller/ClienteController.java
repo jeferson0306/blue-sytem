@@ -1,6 +1,6 @@
 package com.sistemablue.sistemablue.controller;
 
-import com.sistemablue.sistemablue.model.Cliente;
+import com.sistemablue.sistemablue.model.entities.Cliente;
 import com.sistemablue.sistemablue.service.ClienteService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
