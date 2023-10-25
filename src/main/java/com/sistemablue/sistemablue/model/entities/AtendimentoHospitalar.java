@@ -18,4 +18,5 @@ public class AtendimentoHospitalar {
     private String observacoes;
     private Date dataCadastro;
     private Date dataAtualizacao;
+
 }

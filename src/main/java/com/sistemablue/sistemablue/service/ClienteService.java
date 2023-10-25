@@ -6,7 +6,6 @@ import com.sistemablue.sistemablue.util.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -17,18 +16,17 @@ public class ClienteService {
 
     private final ClienteRepository clienteRepository;
 
-    @Cacheable("clienteCpfCache")
     public Mono<Cliente> buscarClientePorCpf(final String cpf) {
         log.info("Buscando cliente por CPF: [{}]", cpf);
         final var documentoValido = String.valueOf(CpfValidator.isCPF(cpf));
         log.info("Busca finalizada para o CPF [{}] com validacao = [{}]", cpf, documentoValido);
-        return clienteRepository.findByCpf(cpf);
+        return clienteRepository.findClienteByCpf(cpf);
     }
 
     public Mono<Cliente> buscarClientePorId(final ObjectId objectId) {
         log.info("Buscando cliente por ID: [{}]", objectId);
-        final var cliente = clienteRepository.findByObjectId(objectId);
-        log.info("Busca finalizada para o ID [{}] com validação = [{}]", cliente, objectId);
+        final var cliente = clienteRepository.findClienteByObjectId(objectId);
+        log.info("Busca finalizada para o ID [{}]", objectId);
         return cliente;
     }
 
@@ -37,22 +35,21 @@ public class ClienteService {
         log.info("Buscando clientes por nome: [{}]", nome);
         final var nomeValido = NomeValidator.isNomeValido(nome);
         log.info("Busca finalizada para o nome [{}] com validacao = [{}]", nome, nomeValido);
-        return clienteRepository.findByNome(nome);
+        return clienteRepository.findClienteByNome(nome);
     }
 
     public Mono<Cliente> buscarClientePorRg(final String rg) {
         log.info("Buscando clientes por rg: [{}]", rg);
         final var rgValido = RgValidator.isRgValido(rg);
         log.info("Busca finalizada para o rg [{}] com validacao = [{}]", rg, rgValido);
-        return clienteRepository.findByRg(rg);
+        return clienteRepository.findClienteByRg(rg);
     }
 
-    @Cacheable("clienteEmailCache")
     public Mono<Cliente> buscarClientePorEmail(final String email) {
         log.info("Buscando clientes por e-mail: [{}]", email);
         final var emailValido = EmailValidator.isEmailValido(email);
         log.info("Busca finalizada para o e-mail [{}] com validacao = [{}]", email, emailValido);
-        return clienteRepository.findClienteByEmail(email);
+        return clienteRepository.findClienteByEmailEmailCliente(email);
     }
 
     public Mono<Cliente> buscarClientePorCidade(final String cidade) {
@@ -73,7 +70,7 @@ public class ClienteService {
         log.info("Buscando clientes por data de nascimento: [{}]", dataNascimento);
         final var dataNascimentoValida = DataValidator.isDataNascimentoValida(dataNascimento);
         log.info("Busca finalizada para a data de nascimento [{}] com validacao = [{}]", dataNascimento, dataNascimentoValida);
-        return clienteRepository.findByDataNascimento(dataNascimento);
+        return clienteRepository.findClienteByDataNascimento(dataNascimento);
     }
 
     public Mono<Cliente> cadastrarNovoCliente(final Cliente cliente) {

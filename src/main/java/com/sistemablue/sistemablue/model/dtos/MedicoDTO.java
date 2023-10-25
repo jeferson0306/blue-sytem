@@ -1,6 +1,9 @@
-package com.sistemablue.sistemablue.model.entities;
+package com.sistemablue.sistemablue.model.dtos;
 
+import com.sistemablue.sistemablue.model.entities.Especialidade;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,14 +12,14 @@ import java.util.Date;
 import java.util.List;
 
 @Data
-@Document(collection = "MEDICO")
-public class Medico {
+@NoArgsConstructor
+@AllArgsConstructor
+public class MedicoDTO {
 
-    @Id
-    private ObjectId objectId;
     private String nome;
     private String crm;
     private List<Especialidade> especialidade;
     private Date dataCadastro;
     private Date dataAtualizacao;
+
 }
