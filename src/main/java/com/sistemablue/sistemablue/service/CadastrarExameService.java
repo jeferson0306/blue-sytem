@@ -17,7 +17,7 @@ public class CadastrarExameService {
     public Mono<ExamesCadastrados> cadastrarExames(final ExamesCadastrados examesCadastrados) {
         log.info("Cadastrando novos exames para o paciente: [{}]", examesCadastrados);
         final var exameCadastrado = cadastrarExamesRepository.save(examesCadastrados);
-        log.info("Exames cadastrados para o paciente: [{}]", );
+        log.info("Exames cadastrados para o paciente: [{}]", examesCadastrados);
         return exameCadastrado;
     }
 

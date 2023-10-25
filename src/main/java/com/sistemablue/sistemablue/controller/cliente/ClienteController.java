@@ -11,12 +11,12 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/consultar-clientes")
+@RequestMapping("/api/v1/clientes")
 public class ClienteController {
 
     private final ClienteService clienteService;
 
-    @GetMapping("/cpf/{cpf}")
+    @GetMapping("/consultar-cpf/{cpf}")
     public Mono<Cliente> buscarClientePorCpf(@PathVariable final String cpf) {
         log.info("Início da solicitação para buscar cliente por CPF: [{}]", cpf);
         final var cliente = clienteService.buscarClientePorCpf(cpf);
@@ -24,7 +24,7 @@ public class ClienteController {
         return cliente;
     }
 
-    @GetMapping("/objectId/{objectId}")
+    @GetMapping("/consultar-objectId/{objectId}")
     public Mono<Cliente> buscarClientePorId(@PathVariable final ObjectId objectId) {
         log.info("Início da solicitação para buscar cliente por ID: [{}]", objectId);
         final var clienteretorno = clienteService.buscarClientePorId(objectId);
@@ -32,7 +32,7 @@ public class ClienteController {
         return clienteretorno;
     }
 
-    @GetMapping("/nome/{nome}")
+    @GetMapping("/consultar-nome/{nome}")
     public Mono<Cliente> buscarClientePorNome(@PathVariable final String nome) {
         log.info("Início da solicitação para buscar clientes por nome: [{}]", nome);
         final var clientes = clienteService.buscarClientesPorNome(nome);
@@ -40,7 +40,7 @@ public class ClienteController {
         return clientes;
     }
 
-    @GetMapping("/rg/{rg}")
+    @GetMapping("/consultar-rg/{rg}")
     public Mono<Cliente> buscarClientesPorRg(@PathVariable final String rg) {
         log.info("Início da solicitação para buscar clientes por RG: [{}]", rg);
         final var clientes = clienteService.buscarClientePorRg(rg);
@@ -48,7 +48,7 @@ public class ClienteController {
         return clientes;
     }
 
-    @GetMapping("/email/{email}")
+    @GetMapping("/consultar-email/{email}")
     public Mono<Cliente> buscarClientesPorEmail(@PathVariable final String email) {
         log.info("Início da solicitação para buscar clientes por e-mail: [{}]", email);
         final var clientes = clienteService.buscarClientePorEmail(email);
@@ -56,7 +56,7 @@ public class ClienteController {
         return clientes;
     }
 
-    @GetMapping("/cidade/{cidade}")
+    @GetMapping("/consultar-cidade/{cidade}")
     public Mono<Cliente> buscarClientesPorCidade(@PathVariable final String cidade) {
         log.info("Início da solicitação para buscar clientes por cidade: [{}]", cidade);
         final var clientes = clienteService.buscarClientePorCidade(cidade);
@@ -64,7 +64,7 @@ public class ClienteController {
         return clientes;
     }
 
-    @GetMapping("/telefone/{numero}")
+    @GetMapping("/consultar-telefone/{numero}")
     public Mono<Cliente> buscarClientesPorNumeroTelefone(@PathVariable final String numero) {
         log.info("Início da solicitação para buscar clientes por número de telefone: [{}]", numero);
         final var clientes = clienteService.buscarClientePorNumeroTelefone(numero);
@@ -72,7 +72,7 @@ public class ClienteController {
         return clientes;
     }
 
-    @GetMapping("/dataNascimento/{dataNascimento}")
+    @GetMapping("/consultar-data-nascimento/{dataNascimento}")
     public Mono<Cliente> buscarClientesPorDataNascimento(@PathVariable final String dataNascimento) {
         log.info("Início da solicitação para buscar clientes por data de nascimento: [{}]", dataNascimento);
         final var clientes = clienteService.buscarClientePorDataNascimento(dataNascimento);

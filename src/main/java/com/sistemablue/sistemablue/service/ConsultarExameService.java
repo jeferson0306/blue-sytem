@@ -19,8 +19,8 @@ public class ConsultarExameService {
         return exameRepository.findCadastroDeExameByObjectId(objectId);
     }
 
-    public Flux<ExamesCadastrados> buscarExamesPorDataRealizacao(final String dataRealizacao) {
-        return exameRepository.findByDataRealizacao(dataRealizacao);
+    public Flux<ExamesCadastrados> buscarExamesPorDataRealizacao(final String dataCadastro) {
+        return exameRepository.findByDataCadastro(dataCadastro);
     }
 
     public Flux<ExamesCadastrados> buscarExamesPorNomeDoCliente(final String nome) {

@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 @Data
-@Document(collection = "AtendimentoHospitalar")
+@Document(collection = "ATENDIMENTO_HOSPITALAR")
 public class AtendimentoHospitalar {
 
     @Id

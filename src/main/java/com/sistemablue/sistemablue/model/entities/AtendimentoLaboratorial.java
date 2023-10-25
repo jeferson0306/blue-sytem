@@ -8,17 +8,16 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
-@Document(collection = "AtendimentoLaboratorial")
+@Document(collection = "ATENDIMENTO_LABORATORIAL")
 public class AtendimentoLaboratorial {
 
     @Id
     private ObjectId objectId;
-    private String tipoAtendimento;
-    private String observacoes;
     private Date dataCadastro;
     private Date dataAtualizacao;
-    private ExamesCadastrados examesCadastrados;
+    private List<ExamesCadastrados> examesCadastrados;
 
 }
