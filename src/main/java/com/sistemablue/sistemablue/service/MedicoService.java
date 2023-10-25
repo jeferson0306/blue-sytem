@@ -1,8 +1,6 @@
 package com.sistemablue.sistemablue.service;
 
 import com.sistemablue.sistemablue.model.dtos.MedicoDTO;
-import com.sistemablue.sistemablue.model.entities.Cliente;
-import com.sistemablue.sistemablue.model.entities.Especialidade;
 import com.sistemablue.sistemablue.model.entities.Medico;
 import com.sistemablue.sistemablue.repository.MedicoRepository;
 import com.sistemablue.sistemablue.util.NomeValidator;
@@ -47,17 +45,26 @@ public class MedicoService {
         log.info("Iniciando cadastro do médico {} com os dados {}", medicoDTO.getNome(), medicoDTO);
 
         final var medico = new Medico();
+
+        if (medicoDTO.getTelefone() == null || medicoDTO.getEndereco() == null) {
+            log.info("Exibição não autorizada pelo médico");
+            medico.setEspecialidade(null);
+            medico.setTelefone(null);
+        }
+
         medico.setNome(medicoDTO.getNome());
         medico.setCrm(medicoDTO.getCrm());
         medico.setEspecialidade(medicoDTO.getEspecialidade());
-        medico.setDataCadastro(new Date());
+        medico.setDataCadastroNaBase(new Date());
+        medico.setDataAtualizacaoNaBase(new Date());
+        medico.setDataDeInscricao(medicoDTO.getDataDeInscricao());
+        medico.setEndereco(medicoDTO.getEndereco());
+        medico.setTelefone(medicoDTO.getTelefone());
 
         final var medicoCadastrado = medicoRepository.save(medico);
 
-        log.info("Cadastro finalizado para o médico {} com os dados {}", medico.getNome(), medicoDTO);
+        log.info("Cadastro finalizado para o médico {} com os dados", medico.getNome());
 
         return medicoCadastrado;
     }
-
-
 }

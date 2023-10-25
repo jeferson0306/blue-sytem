@@ -6,9 +6,9 @@ import org.springframework.http.HttpStatus;
 @Getter
 public class ExameException extends RuntimeException {
 
-    private HttpStatus httpStatus;
+    private final HttpStatus httpStatus;
 
-    public ExameException(final String message, HttpStatus httpStatus) {
+    public ExameException(final String message, final HttpStatus httpStatus) {
         super(message);
         this.httpStatus = httpStatus;
     }

@@ -17,6 +17,9 @@ public class Medico {
     private String nome;
     private String crm;
     private List<Especialidade> especialidade;
-    private Date dataCadastro;
-    private Date dataAtualizacao;
+    private Date dataCadastroNaBase;
+    private Date dataAtualizacaoNaBase;
+    private Date dataDeInscricao;
+    private Endereco endereco;
+    private Telefone telefone;
 }

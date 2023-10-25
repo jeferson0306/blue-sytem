@@ -2,6 +2,7 @@ package com.sistemablue.sistemablue.util;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.text.Normalizer;
 import java.util.regex.Pattern;
 
 @Slf4j
@@ -28,12 +29,17 @@ public class NomeValidator {
             return false;
         }
 
-        final var nomeEmUppercase = nomeSemValidacao.toUpperCase();
+        final var nomeFormatado = formatarNome(nomeSemValidacao);
 
         final var regex = "^[A-Z][A-Z\\s]*$";
 
-        log.info("Nome em validado com sucesso: {}", nomeEmUppercase);
+        log.info("Nome validado com sucesso: {}", nomeFormatado);
 
-        return Pattern.matches(regex, nomeEmUppercase);
+        return Pattern.matches(regex, nomeFormatado);
+    }
+
+    public static String formatarNome(final String nome) {
+        final var nomeSemAcentos = Normalizer.normalize(nome, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+        return nomeSemAcentos.toUpperCase();
     }
 }
