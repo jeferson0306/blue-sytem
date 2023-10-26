@@ -1,7 +1,7 @@
 package com.sistemablue.sistemablue.service;
 
-import com.sistemablue.sistemablue.model.dtos.MedicoDTO;
-import com.sistemablue.sistemablue.model.entities.Medico;
+import com.sistemablue.sistemablue.domain.model.MedicoDTO;
+import com.sistemablue.sistemablue.domain.entities.Medico;
 import com.sistemablue.sistemablue.repository.MedicoRepository;
 import com.sistemablue.sistemablue.util.NomeValidator;
 import lombok.RequiredArgsConstructor;

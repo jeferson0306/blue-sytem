@@ -1,6 +1,6 @@
 package com.sistemablue.sistemablue.repository;
 
-import com.sistemablue.sistemablue.model.entities.Medico;
+import com.sistemablue.sistemablue.domain.entities.Medico;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Flux;

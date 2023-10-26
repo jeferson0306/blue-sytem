@@ -1,6 +1,6 @@
 package com.sistemablue.sistemablue.service;
 
-import com.sistemablue.sistemablue.model.arquivo.ArquivoDto;
+import com.sistemablue.sistemablue.domain.model.ArquivoDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -29,7 +29,7 @@ public class ArquivoService {
     @Value("${arquivo.json.name.path}")
     private String arquivoJsonPath;
 
-    public List<ArquivoDto> lerExamesDoExcel() throws IOException {
+    public List<ArquivoDTO> lerExamesDoExcel() throws IOException {
 
         try (final var fileInputStream = new FileInputStream(arquivoExcelPath)) {
 
@@ -41,7 +41,7 @@ public class ArquivoService {
 
             rowIterator.next();
 
-            final var exames = new ArrayList<ArquivoDto>();
+            final var exames = new ArrayList<ArquivoDTO>();
 
             while (rowIterator.hasNext()) {
 
@@ -51,7 +51,7 @@ public class ArquivoService {
                 final var valorMinimo = cellIterator.next().getStringCellValue();
                 final var valorMaximo = cellIterator.next().getStringCellValue();
                 final var unidadeReferencia = cellIterator.next().getStringCellValue();
-                final var resultado = new ArquivoDto(exame, valorMinimo, valorMaximo, unidadeReferencia);
+                final var resultado = new ArquivoDTO(exame, valorMinimo, valorMaximo, unidadeReferencia);
                 exames.add(resultado);
             }
 

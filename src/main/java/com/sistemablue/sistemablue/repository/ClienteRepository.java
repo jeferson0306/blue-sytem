@@ -1,9 +1,8 @@
 package com.sistemablue.sistemablue.repository;
 
-import com.sistemablue.sistemablue.model.entities.Cliente;
+import com.sistemablue.sistemablue.domain.entities.Cliente;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface ClienteRepository extends ReactiveMongoRepository<Cliente, ObjectId> {
