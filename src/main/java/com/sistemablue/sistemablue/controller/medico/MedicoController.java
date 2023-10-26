@@ -7,7 +7,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -39,6 +42,14 @@ public class MedicoController {
         final var medico = medicoService.buscarMedicoPorObjectId(objectId);
         log.info("Fim da solicitação para buscar medico por objectId: [{}]", objectId);
         return medico;
+    }
+
+    @GetMapping("/consultar-medicos-por-nome/{nome}")
+    public Flux<Medico> buscarMedicosPorParteDoNome(@PathVariable final String nome) {
+        log.info("Início da solicitação para buscar médicos por parte do nome: [{}]", nome);
+        final var medicos = medicoService.buscarMedicosPorParteDoNome(nome);
+        log.info("Fim da solicitação para buscar médicos por parte do nome: [{}]", nome);
+        return medicos;
     }
 
     @PostMapping("/cadastrar-medico")

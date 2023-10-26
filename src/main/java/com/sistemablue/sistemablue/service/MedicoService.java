@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Date;
@@ -39,6 +40,22 @@ public class MedicoService {
         log.info("Busca finalizada para o medico [{}]", objectId);
         return medicoObjectId;
     }
+
+    public Flux<Medico> buscarMedicosPorParteDoNome(final String parteDoNome) {
+
+        log.info("Buscando médicos por parte do nome [{}]", parteDoNome);
+
+        if (parteDoNome == null || parteDoNome.isEmpty()) {
+            return Flux.error(new RuntimeException("O nome não pode estar vazia."));
+        }
+
+        final var regex = ".*" + parteDoNome + ".*";
+        final var medicos = medicoRepository.findAllByNomeRegex(regex);
+
+        log.info("Busca finalizada para a parte do nome [{}]", parteDoNome);
+        return medicos;
+    }
+
 
     public Mono<Medico> cadastrarMedico(final MedicoDTO medicoDTO) {
 
