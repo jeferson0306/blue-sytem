@@ -16,10 +16,10 @@ public class Medico {
     private ObjectId objectId;
     private String nome;
     private String crm;
+    private String telefone;
+    private String endereco;
     private List<Especialidade> especialidade;
+    private Date dataDeInscricao;
     private Date dataCadastroNaBase;
     private Date dataAtualizacaoNaBase;
-    private Date dataDeInscricao;
-    private Endereco endereco;
-    private Telefone telefone;
 }

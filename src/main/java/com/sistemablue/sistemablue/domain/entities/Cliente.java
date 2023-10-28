@@ -19,11 +19,11 @@ public class Cliente {
     private String rg;
     private String genero;
     private String dataNascimento;
-    private Date dataCadastro;
-    private Date dataAtualizacao;
     private Email email;
     private Telefone telefone;
     private Endereco endereco;
     private List<Atendimento> atendimento;
+    private Date dataAtualizacao;
+    private Date dataCadastro;
 
 }

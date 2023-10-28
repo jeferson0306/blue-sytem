@@ -8,12 +8,12 @@ import reactor.core.publisher.Mono;
 public interface ClienteRepository extends ReactiveMongoRepository<Cliente, ObjectId> {
 
     Mono<Cliente> findClienteByObjectId(final ObjectId objectId);
-    Mono<Cliente> findClienteByNome(final String nome);
-    Mono<Cliente> findClienteByCpf(final String cpf);
-    Mono<Cliente> findClienteByRg(final String rg);
-    Mono<Cliente> findClienteByDataNascimento(final String dataNascimento);
-    Mono<Cliente> findClienteByEmailEmailCliente(final String email);
-    Mono<Cliente> findClienteByTelefoneNumero(final String numero);
-    Mono<Cliente> findClienteByEnderecoCidade(final String cidade);
+    Mono<Cliente> findByNome(final String nome);
+    Mono<Cliente> findByCpf(final String cpf);
+    Mono<Cliente> findByRg(final String rg);
+    Mono<Cliente> findByDataNascimento(final String dataNascimento);
+    Mono<Cliente> findByEmail(final String email);
+    Mono<Cliente> findByTelefone(final String numero);
+    Mono<Cliente> findByEndereco(final String cidade);
 
 }

@@ -1,6 +1,7 @@
 package com.sistemablue.sistemablue.controller;
 
 import com.sistemablue.sistemablue.domain.entities.Cliente;
+import com.sistemablue.sistemablue.domain.model.ClienteDTO;
 import com.sistemablue.sistemablue.service.ClienteService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -81,10 +82,10 @@ public class ClienteController {
     }
 
     @PostMapping("/cadastro")
-    public Mono<Cliente> cadastrarNovoCliente(@RequestBody Cliente novoCliente) {
-        log.info("Início da solicitação para cadastrar um novo cliente.");
-        final var cliente = clienteService.cadastrarNovoCliente(novoCliente);
-        log.info("Fim da solicitação para cadastrar um novo cliente.");
+    public Mono<Cliente> cadastrarCliente(@RequestBody ClienteDTO clienteDTO) {
+        log.info("Início da solicitação para cadastrar o cliente {}", clienteDTO.getNome());
+        final var cliente = clienteService.cadastrarCliente(clienteDTO);
+        log.info("Fim da solicitação para cadastrar o cliente {} com os dados {}", clienteDTO.getNome(), clienteDTO);
         return cliente;
     }
 }

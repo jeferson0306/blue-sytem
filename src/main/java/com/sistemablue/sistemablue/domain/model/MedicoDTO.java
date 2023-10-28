@@ -21,7 +21,7 @@ public class MedicoDTO {
     private Date dataCadastroNaBase;
     private Date dataAtualizacaoNaBase;
     private Date dataDeInscricao;
-    private Endereco endereco;
-    private Telefone telefone;
+    private String endereco;
+    private String telefone;
 
 }
