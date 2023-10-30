@@ -22,7 +22,7 @@ public class Cliente {
     private Email email;
     private Telefone telefone;
     private Endereco endereco;
-    private List<Atendimento> atendimento;
+    private List<Atendimento> atendimentos;
     private Date dataAtualizacao;
     private Date dataCadastro;
 

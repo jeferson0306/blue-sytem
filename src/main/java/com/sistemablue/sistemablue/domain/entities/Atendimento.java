@@ -15,7 +15,7 @@ public class Atendimento {
     @Id
     private ObjectId objectId;
     private Date dataAtendimento;
-    private List<ConsultaMedica> consultaMedica;
-    private List<ExameLaboratorial> exameLaboratorial;
+    private List<ConsultaMedica> consultasMedicas;
+    private List<ExameLaboratorial> examesLaboratoriais;
 
 }

@@ -7,6 +7,7 @@ import com.sistemablue.sistemablue.util.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -31,10 +32,11 @@ public class ClienteService {
         novoCliente.setEndereco(clienteDTO.getEndereco());
         novoCliente.setDataCadastro(new Date());
         novoCliente.setDataAtualizacao(new Date());
-        novoCliente.setAtendimento(null);
+        novoCliente.setAtendimentos(null);
         return novoCliente;
     }
 
+    @Cacheable("buscar-cpf")
     public Mono<Cliente> buscarClientePorCpf(final String cpf) {
         log.info("Buscando cliente por CPF: [{}]", cpf);
         final var documentoValido = String.valueOf(CpfValidator.isCPF(cpf));
