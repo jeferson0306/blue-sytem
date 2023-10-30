@@ -12,7 +12,7 @@ public class NomeValidator {
         throw new IllegalStateException("Classe utilitária, não deve ser instanciada.");
     }
 
-    public static boolean isNomeValido(final String nome) {
+    public static boolean isNome(final String nome) {
 
         if (nome == null || nome.trim().isEmpty()) {
             log.error("Nome vazio ou nulo {}", nome);
@@ -29,16 +29,16 @@ public class NomeValidator {
             return false;
         }
 
-        final var nomeFormatado = formatarNome(nomeSemValidacao);
+        final var nomeFormatado = isNomeValido(nomeSemValidacao);
 
         final var regex = "^[A-Z][A-Z\\s]*$";
 
-        log.info("Nome validado com sucesso: {}", nomeFormatado);
+        log.info("Nome validado com sucesso {}", nomeFormatado);
 
         return Pattern.matches(regex, nomeFormatado);
     }
 
-    public static String formatarNome(final String nome) {
+    public static String isNomeValido(final String nome) {
         final var nomeSemAcentos = Normalizer.normalize(nome, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
         return nomeSemAcentos.toUpperCase();
     }

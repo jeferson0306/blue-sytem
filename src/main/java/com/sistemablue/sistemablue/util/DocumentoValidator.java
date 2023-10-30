@@ -5,13 +5,13 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.InputMismatchException;
 
 @Slf4j
-public class CpfValidator {
+public class DocumentoValidator {
 
-    private CpfValidator() {
+    private DocumentoValidator() {
         throw new IllegalStateException("Classe utilitária, não deve ser instanciada.");
     }
 
-    public static boolean isCPF(final String documento) {
+    public static boolean isCpf(final String documento) {
 
         if (documento == null || documento.isEmpty() || documento.trim().isEmpty() || documento.equals("0")) {
             log.error("CPF vazio ou nulo {}", documento);
@@ -71,5 +71,27 @@ public class CpfValidator {
         } catch (InputMismatchException erro) {
             return false;
         }
+    }
+
+    public static boolean isRgValido(final String rg) {
+
+        if (rg == null || rg.isEmpty()) {
+            log.error("Documento rg é vazio ou nulo {}", rg);
+            return false;
+        }
+
+        final var numeroRg = rg.replaceAll("\\D", "");
+
+        if (!isDocumentoRgValido(numeroRg)) {
+            log.error("Formato do documento rg {} é inválido", rg);
+            return false;
+        }
+
+        log.info("Documento rg {} validado com sucesso", rg);
+        return true;
+    }
+
+    private static boolean isDocumentoRgValido(final String numeroRg) {
+        return numeroRg.length() == 8 || numeroRg.length() == 9;
     }
 }

@@ -3,6 +3,7 @@ package com.sistemablue.sistemablue.service;
 import com.sistemablue.sistemablue.domain.entities.Medico;
 import com.sistemablue.sistemablue.domain.model.MedicoDTO;
 import com.sistemablue.sistemablue.repository.MedicoRepository;
+import com.sistemablue.sistemablue.util.GeneroValidator;
 import com.sistemablue.sistemablue.util.NomeValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +23,7 @@ public class MedicoService {
 
     public Mono<Medico> buscarMedicoPorNome(final String nome) {
         log.info("Buscando medico pelo nome [{}]", nome);
-        final var nomeValido = String.valueOf(NomeValidator.isNomeValido(nome));
+        final var nomeValido = String.valueOf(NomeValidator.isNome(nome));
         log.info("Busca finalizada para o medico [{}]", nome);
         return medicoRepository.findMedicoByNome(nomeValido);
     }
@@ -69,14 +70,24 @@ public class MedicoService {
             medico.setTelefone(null);
         }
 
-        medico.setNome(medicoDTO.getNome());
+        final var nomeValido = NomeValidator.isNome(medicoDTO.getNome());
+        final var generoValido = GeneroValidator.isGenero(medicoDTO.getGenero());
+
+        if (nomeValido && generoValido) {
+            medico.setNome(medicoDTO.getNome().toUpperCase());
+            medico.setGenero(medicoDTO.getGenero().toUpperCase());
+        } else {
+            log.error("Nome ou gênero inválidos. Não é possível cadastrar o médico.");
+            return Mono.error(new RuntimeException("Nome ou gênero inválidos. Não é possível cadastrar o médico."));
+        }
+
         medico.setCrm(medicoDTO.getCrm());
+        medico.setTelefone(medicoDTO.getTelefone());
+        medico.setEndereco(medicoDTO.getEndereco());
         medico.setEspecialidade(medicoDTO.getEspecialidade());
+        medico.setDataDeInscricao(medicoDTO.getDataDeInscricao());
         medico.setDataCadastroNaBase(new Date());
         medico.setDataAtualizacaoNaBase(new Date());
-        medico.setDataDeInscricao(medicoDTO.getDataDeInscricao());
-        medico.setEndereco(medicoDTO.getEndereco());
-        medico.setTelefone(medicoDTO.getTelefone());
 
         final var medicoCadastrado = medicoRepository.save(medico);
 
@@ -84,4 +95,5 @@ public class MedicoService {
 
         return medicoCadastrado;
     }
+
 }

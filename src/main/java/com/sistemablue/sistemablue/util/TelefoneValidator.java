@@ -9,7 +9,7 @@ public class TelefoneValidator {
         throw new IllegalStateException("Classe utilitária, não deve ser instanciada.");
     }
 
-    public static boolean isTelefoneValido(final String telefone) {
+    public static boolean isTelefone(final String telefone) {
 
         if (telefone == null || telefone.trim().isEmpty()) {
             log.error("Telefone vazio ou nulo: {}", telefone);
@@ -18,7 +18,7 @@ public class TelefoneValidator {
 
         final var numeroTelefone = telefone.replaceAll("\\D", "");
 
-        if (!isValidFormat(numeroTelefone)) {
+        if (!isTelefoneValido(numeroTelefone)) {
             log.error("Formato de telefone inválido: {}", telefone);
             return false;
         }
@@ -32,7 +32,7 @@ public class TelefoneValidator {
         return true;
     }
 
-    private static boolean isValidFormat(final String numeroTelefone) {
+    private static boolean isTelefoneValido(final String numeroTelefone) {
         return numeroTelefone.length() == 10 || numeroTelefone.length() == 11 || numeroTelefone.length() == 14;
     }
 

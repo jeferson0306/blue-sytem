@@ -5,20 +5,25 @@ import com.sistemablue.sistemablue.domain.entities.Cliente;
 import com.sistemablue.sistemablue.domain.entities.ConsultaMedica;
 import com.sistemablue.sistemablue.domain.model.ClienteDTO;
 import com.sistemablue.sistemablue.domain.model.ConsultaMedicaDTO;
+import com.sistemablue.sistemablue.repository.AtendimentoRepository;
 import com.sistemablue.sistemablue.repository.ClienteCadastralRepository;
+import com.sistemablue.sistemablue.repository.ClienteConsultasRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class ConsultaMedicaService {
+public class ConsultaService {
 
+    private final AtendimentoRepository atendimentoRepository;
     private final ClienteCadastralRepository clienteCadastralRepository;
+    private final ClienteConsultasRepository clienteConsultasRepository;
 
     public Cliente realizarConsultaMedica(final ConsultaMedicaDTO consultaMedicaDTO, final ClienteDTO clienteDTO) {
 
@@ -54,4 +59,20 @@ public class ConsultaMedicaService {
 
         return clienteSalvo;
     }
+
+    public List<Atendimento> buscarAtendimentosPorCliente(final String cpf) {
+
+        log.info("Iniciando solicitação para buscar atendimentos do cliente com cpf {}", cpf);
+
+        final var cliente = clienteConsultasRepository.findByCpf(cpf);
+
+        log.info("Cliente com cpf {} encontrado na base, buscando atendimentos", cpf);
+
+        final var atendimentos = atendimentoRepository.findByCliente(cliente);
+
+        log.info("Atendimentos do cliente com cpf {} encontrados na base", cpf);
+
+        return atendimentos;
+    }
+
 }

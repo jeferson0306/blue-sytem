@@ -39,7 +39,7 @@ public class ClienteService {
     @Cacheable("buscar-cpf")
     public Mono<Cliente> buscarClientePorCpf(final String cpf) {
         log.info("Buscando cliente por CPF: [{}]", cpf);
-        final var documentoValido = String.valueOf(CpfValidator.isCPF(cpf));
+        final var documentoValido = String.valueOf(DocumentoValidator.isCpf(cpf));
         log.info("Busca finalizada para o CPF [{}] com validacao = [{}]", cpf, documentoValido);
         return clienteRepository.findByCpf(cpf);
     }
@@ -53,21 +53,21 @@ public class ClienteService {
 
     public Mono<Cliente> buscarClientesPorNome(final String nome) {
         log.info("Buscando clientes por nome: [{}]", nome);
-        final var nomeValido = NomeValidator.isNomeValido(nome);
+        final var nomeValido = NomeValidator.isNome(nome);
         log.info("Busca finalizada para o nome [{}] com validacao = [{}]", nome, nomeValido);
         return clienteRepository.findByNome(nome);
     }
 
     public Mono<Cliente> buscarClientePorRg(final String rg) {
         log.info("Buscando clientes por rg: [{}]", rg);
-        final var rgValido = RgValidator.isRgValido(rg);
+        final var rgValido = DocumentoValidator.isRgValido(rg);
         log.info("Busca finalizada para o rg [{}] com validacao = [{}]", rg, rgValido);
         return clienteRepository.findByRg(rg);
     }
 
     public Mono<Cliente> buscarClientePorEmail(final String email) {
         log.info("Buscando clientes por e-mail: [{}]", email);
-        final var emailValido = EmailValidator.isEmailValido(email);
+        final var emailValido = EmailValidator.isEmail(email);
         log.info("Busca finalizada para o e-mail [{}] com validacao = [{}]", email, emailValido);
         return clienteRepository.findByEmail(email);
     }
@@ -81,14 +81,14 @@ public class ClienteService {
 
     public Mono<Cliente> buscarClientePorNumeroTelefone(final String numero) {
         log.info("Buscando clientes por número de telefone: [{}]", numero);
-        final var telefoneValido = String.valueOf(TelefoneValidator.isTelefoneValido(numero));
+        final var telefoneValido = String.valueOf(TelefoneValidator.isTelefone(numero));
         log.info("Busca finalizada para o número de telefone [{}] com validacao = [{}]", numero, telefoneValido);
         return clienteRepository.findByTelefone(numero);
     }
 
     public Mono<Cliente> buscarClientePorDataNascimento(final String dataNascimento) {
         log.info("Buscando clientes por data de nascimento: [{}]", dataNascimento);
-        final var dataNascimentoValida = DataValidator.isDataNascimentoValida(dataNascimento);
+        final var dataNascimentoValida = DataValidator.isData(dataNascimento);
         log.info("Busca finalizada para a data de nascimento [{}] com validacao = [{}]", dataNascimento, dataNascimentoValida);
         return clienteRepository.findByDataNascimento(dataNascimento);
     }

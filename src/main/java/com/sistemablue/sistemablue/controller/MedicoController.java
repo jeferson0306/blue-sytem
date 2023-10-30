@@ -34,7 +34,7 @@ public class MedicoController {
         return medico;
     }
 
-    @GetMapping("/consultar-medico-por-id/{objectId}")
+    @GetMapping("/consultar-medico-por-object-id/{objectId}")
     public Mono<Medico> buscarMedicoPorObjectId(@PathVariable final ObjectId objectId) {
         log.info("Início da solicitação para buscar medico por objectId: [{}]", objectId);
         final var medico = medicoService.buscarMedicoPorObjectId(objectId);
@@ -42,7 +42,7 @@ public class MedicoController {
         return medico;
     }
 
-    @GetMapping("/consultar-medicos-por-nome/{nome}")
+    @GetMapping("/consultar-medico-por-parte-nome/{nome}")
     public Flux<Medico> buscarMedicosPorParteDoNome(@PathVariable final String nome) {
         log.info("Início da solicitação para buscar médicos por parte do nome: [{}]", nome);
         final var medicos = medicoService.buscarMedicosPorParteDoNome(nome);
@@ -51,10 +51,10 @@ public class MedicoController {
     }
 
     @PostMapping("/cadastrar-medico")
-    public Mono<Medico> cadastrarMedico(@RequestBody final MedicoDTO medico) {
-        log.info("Início da solicitação de cadastro para o medico [{}]", medico.getNome());
-        final var medicoCadastrado = medicoService.cadastrarMedico(medico);
-        log.info("Fim da solicitação de cadastro para o medico [{}]", medico.getNome());
+    public Mono<Medico> cadastrarMedico(@RequestBody final MedicoDTO medicoDTO) {
+        log.info("Início da solicitação de cadastro para o medico [{}]", medicoDTO.getNome());
+        final var medicoCadastrado = medicoService.cadastrarMedico(medicoDTO);
+        log.info("Fim da solicitação de cadastro para o medico [{}]", medicoDTO.getNome());
         return medicoCadastrado;
     }
 }

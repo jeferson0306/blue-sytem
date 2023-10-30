@@ -11,14 +11,14 @@ public class EmailValidator {
         throw new IllegalStateException("Classe utilitária, não deve ser instanciada.");
     }
 
-    public static boolean isEmailValido(final String email) {
+    public static boolean isEmail(final String email) {
 
         if (email == null || email.trim().isEmpty()) {
             log.error("E-mail vazio ou nulo: {}", email);
             return false;
         }
 
-        final var emailNormalizado = normalizarEmail(email);
+        final var emailNormalizado = isEmailValido(email);
 
         final var regex = "^[A-Z0-9+_.-]+@(.+)$";
 
@@ -31,7 +31,7 @@ public class EmailValidator {
         return true;
     }
 
-    private static String normalizarEmail(final String email) {
+    private static String isEmailValido(final String email) {
         return Normalizer.normalize(email, Normalizer.Form.NFD)
                 .replaceAll("[^\\p{ASCII}]", "")
                 .toUpperCase();

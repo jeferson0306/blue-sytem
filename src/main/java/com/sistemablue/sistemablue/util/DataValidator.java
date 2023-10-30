@@ -13,7 +13,7 @@ public class DataValidator {
         throw new IllegalStateException("Classe utilitária, não deve ser instanciada.");
     }
 
-    public static boolean isDataNascimentoValida(final String data) {
+    public static boolean isData(final String data) {
 
         if (data == null || data.trim().isEmpty()) {
             log.error("Data vazia ou nula: {}", data);

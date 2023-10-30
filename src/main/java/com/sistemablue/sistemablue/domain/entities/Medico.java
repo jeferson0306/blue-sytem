@@ -18,8 +18,10 @@ public class Medico {
     private String crm;
     private String telefone;
     private String endereco;
+    private String genero;
     private List<Especialidade> especialidade;
     private Date dataDeInscricao;
     private Date dataCadastroNaBase;
     private Date dataAtualizacaoNaBase;
+
 }

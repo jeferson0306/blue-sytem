@@ -1,8 +1,6 @@
 package com.sistemablue.sistemablue.domain.model;
 
-import com.sistemablue.sistemablue.domain.entities.Endereco;
 import com.sistemablue.sistemablue.domain.entities.Especialidade;
-import com.sistemablue.sistemablue.domain.entities.Telefone;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,11 +15,13 @@ public class MedicoDTO {
 
     private String nome;
     private String crm;
+    private String telefone;
+    private String endereco;
+    private String genero;
     private List<Especialidade> especialidade;
+    private Date dataDeInscricao;
     private Date dataCadastroNaBase;
     private Date dataAtualizacaoNaBase;
-    private Date dataDeInscricao;
-    private String endereco;
-    private String telefone;
 
 }
+

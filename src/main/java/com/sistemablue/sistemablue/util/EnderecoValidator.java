@@ -10,7 +10,7 @@ public class EnderecoValidator {
         throw new IllegalStateException("Classe utilitária, não deve ser instanciada.");
     }
 
-    public static boolean isEnderecoValido(final Endereco endereco) {
+    public static boolean isEndereco(final Endereco endereco) {
 
         if (endereco == null) {
             log.warn("Endereço nulo.");
@@ -42,7 +42,7 @@ public class EnderecoValidator {
             return false;
         }
 
-        if (!isCepValido(endereco.getCep())) {
+        if (!isCep(endereco.getCep())) {
             log.warn("Formato de CEP inválido: {}", endereco.getCep());
             return false;
         }
@@ -51,7 +51,7 @@ public class EnderecoValidator {
         return true;
     }
 
-    private static boolean isCepValido(final String cep) {
+    private static boolean isCep(final String cep) {
         return cep.matches("\\d{8}");
     }
 }

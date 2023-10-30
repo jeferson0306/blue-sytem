@@ -25,7 +25,7 @@ public class ClienteController {
         return cliente;
     }
 
-    @GetMapping("/consultar-objectId/{objectId}")
+    @GetMapping("/consultar-object-id/{objectId}")
     public Mono<Cliente> buscarClientePorId(@PathVariable final ObjectId objectId) {
         log.info("Início da solicitação para buscar cliente por ID: [{}]", objectId);
         final var clienteretorno = clienteService.buscarClientePorId(objectId);
@@ -81,7 +81,7 @@ public class ClienteController {
         return clientes;
     }
 
-    @PostMapping("/cadastro")
+    @PostMapping("/cadastrar-cliente")
     public Mono<Cliente> cadastrarCliente(@RequestBody ClienteDTO clienteDTO) {
         log.info("Início da solicitação para cadastrar o cliente {}", clienteDTO.getNome());
         final var cliente = clienteService.cadastrarCliente(clienteDTO);
